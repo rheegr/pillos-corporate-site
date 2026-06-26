@@ -1,0 +1,708 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Design tokens - British heritage editorial system
+   Cream paper · charcoal ink · navy seal · oxblood-orange accent
+============================================================ */
+@theme inline {
+  /* Colors */
+  --color-pillos-orange: #f9441d;          /* primary, desaturated burnt sienna */
+  --color-pillos-orange-bright: #f9441d;   /* legacy bright (kept for selective accents) */
+  --color-pillos-orange-dark: #d2370f;     /* blood orange depth */
+  --color-maritime-navy: #0e2a47;
+  --color-deep-navy: #163a5f;
+  --color-cloud-white: #f8f6f3;
+  --color-cloud-white-deeper: #f1ece3;
+  --color-cloud-white-deepest: #ebe5da;
+  --color-charcoal: #1a1a1a;
+  --color-slate-muted: #64748b;
+
+  /* Fonts */
+  --font-serif: var(--font-dm-serif), var(--font-noto-serif-kr), Georgia, "Times New Roman", serif;
+  --font-serif-kr: var(--font-noto-serif-kr), var(--font-dm-serif), serif;
+  --font-sans: var(--font-inter), var(--font-noto-sans-kr), system-ui, -apple-system, sans-serif;
+
+  /* Typography scale (clamp) */
+  --text-display: clamp(3.5rem, 7vw, 6.5rem);
+  --text-h1: clamp(2.5rem, 4.5vw, 4rem);
+  --text-h2: clamp(2rem, 3.5vw, 3.25rem);
+  --text-h3: clamp(1.5rem, 2.5vw, 2rem);
+  --text-body-lg: 1.125rem;
+  --text-body: 1rem;
+  --text-eyebrow: 0.875rem;
+
+  /* Line heights */
+  --leading-display: 1.02;
+  --leading-h1: 1.05;
+  --leading-h2: 1.1;
+  --leading-h3: 1.15;
+  --leading-body-lg: 1.75;
+  --leading-body: 1.7;
+
+  /* Letter-spacing tokens */
+  --tracking-display: -0.02em;
+  --tracking-h1: -0.015em;
+  --tracking-h2: -0.01em;
+  --tracking-eyebrow: 0.15em;
+  --tracking-eyebrow-loud: 0.22em;
+  --tracking-eyebrow-quiet: 0.05em;
+  --tracking-button: 0.18em;
+
+  /* Motion */
+  --duration-fast: 200ms;
+  --duration-base: 400ms;
+  --duration-slow: 700ms;
+  --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --header-h: 72px;
+}
+
+:root {
+  --background: #f8f6f3;
+  --foreground: #1a1a1a;
+  /* Lock light palette - prevents Android Chrome auto-dark and OS dark mode
+     from inverting the cream/navy heritage scheme into muddy low-contrast greys */
+  color-scheme: light only;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html:lang(ko) {
+  word-break: keep-all;
+}
+
+/* Korean version - single typeface (Malgun Gothic) across the entire UI.
+   Overrides all body/heading/serif stacks so Korean reads uniformly. */
+html:lang(ko),
+html:lang(ko) body,
+html:lang(ko) h1,
+html:lang(ko) h2,
+html:lang(ko) h3,
+html:lang(ko) h4,
+html:lang(ko) h5,
+html:lang(ko) h6,
+html:lang(ko) p,
+html:lang(ko) span,
+html:lang(ko) a,
+html:lang(ko) li,
+html:lang(ko) blockquote,
+html:lang(ko) button,
+html:lang(ko) input,
+html:lang(ko) textarea,
+html:lang(ko) label,
+html:lang(ko) div,
+html:lang(ko) .font-serif-kr,
+html:lang(ko) .tx-display,
+html:lang(ko) .tx-h1,
+html:lang(ko) .tx-h2,
+html:lang(ko) .tx-h3 {
+  font-family: "Pretendard Variable", "Pretendard", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", system-ui, -apple-system, sans-serif;
+  font-style: normal;
+}
+
+html:lang(ko) h1,
+html:lang(ko) h2,
+html:lang(ko) h3 {
+  text-wrap: pretty;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+/* Drop the italic-serif accent in Korean - Malgun renders italic poorly */
+html:lang(ko) em,
+html:lang(ko) i,
+html:lang(ko) .italic {
+  font-style: normal;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "ss01", "cv11";
+  position: relative;
+}
+
+/* Body grain overlay - printed-paper texture */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.015;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.05  0 0 0 0 0.1  0 0 0 0 0.2  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 180px 180px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::after { opacity: 0.015; }
+}
+
+::selection {
+  background: rgba(249, 68, 29, 0.85);
+  color: #f8f6f3;
+}
+
+/* Global focus ring - keyboard only */
+*:focus { outline: none; }
+*:focus-visible {
+  outline: 2px solid var(--color-pillos-orange);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* ============================================================
+   Reveal-on-scroll
+============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 500ms var(--ease-out-soft),
+    transform 500ms var(--ease-out-soft);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+  .ghost-slide-in,
+  .orange-rule-draw {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   Hero ghost watermark slide-in
+============================================================ */
+@keyframes ghostSlide {
+  from {
+    transform: translateX(-12%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-6%);
+    opacity: 0.12;
+  }
+}
+.ghost-slide-in {
+  animation: ghostSlide 1400ms var(--ease-out-soft) both;
+}
+
+/* Hero ambient layer - radial cream warmth (used on sub-page heroes) */
+.hero-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 60% at 78% 30%, rgba(249, 68, 29, 0.06), transparent 60%),
+    radial-gradient(ellipse 70% 80% at 20% 70%, rgba(14, 42, 71, 0.05), transparent 65%);
+}
+
+/* ============================================================
+   Hero photo - cinematic Ken Burns
+============================================================ */
+.hero-photo-img {
+  object-position: center 38%;
+  animation: kenBurns 32s ease-in-out infinite alternate;
+  will-change: transform;
+  filter: saturate(0.92) contrast(1.03) brightness(0.96);
+  transform-origin: 50% 38%;
+}
+
+@keyframes kenBurns {
+  0%   { transform: scale(1.02) translate3d(0, 0, 0); }
+  100% { transform: scale(1.10) translate3d(-1.2%, -1%, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo-img { animation: none; transform: scale(1.02); }
+}
+
+/* Mobile - serve a portrait crop (hero-jade-mobile.jpg) whose sky and sea are
+   extended above and below the vessel, so object-fit: cover fills the tall
+   viewport without cropping the ship or letterboxing into navy.
+   The dark scrim is lightened on mobile so the sky tone shows through. */
+@media (max-width: 767px) {
+  #top {
+    background: linear-gradient(180deg, #ccd4de 0%, #b1bfcf 22%, #21425c 64%, #0e2a47 100%) !important;
+  }
+
+  .hero-photo-img {
+    object-fit: cover;
+    object-position: center 42%;
+    animation: none;
+    transform: none;
+  }
+
+  #top::before { display: none; }
+
+  /* Lighter scrim - keeps text legible on the left without washing out the sky */
+  .hero-overlay {
+    background:
+      linear-gradient(180deg,
+        rgba(14, 42, 71, 0.32) 0%,
+        rgba(14, 42, 71, 0.12) 18%,
+        transparent 32%),
+      linear-gradient(105deg,
+        rgba(14, 42, 71, 0.78) 0%,
+        rgba(14, 42, 71, 0.52) 32%,
+        rgba(14, 42, 71, 0.18) 62%,
+        transparent 85%),
+      linear-gradient(0deg,
+        rgba(14, 42, 71, 0.78) 0%,
+        rgba(14, 42, 71, 0.36) 13%,
+        transparent 25%) !important;
+  }
+}
+
+/* Hero overlay - three-layer scrim for editorial readability */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    /* Top scrim - keeps the floating header legible */
+    linear-gradient(180deg,
+      rgba(14, 42, 71, 0.55) 0%,
+      rgba(14, 42, 71, 0.30) 12%,
+      rgba(14, 42, 71, 0.12) 28%,
+      transparent 45%),
+    /* Left-bottom dark wash - text legibility, cinematic depth */
+    linear-gradient(105deg,
+      rgba(14, 42, 71, 0.82) 0%,
+      rgba(14, 42, 71, 0.62) 30%,
+      rgba(14, 42, 71, 0.28) 60%,
+      rgba(14, 42, 71, 0.08) 85%),
+    /* Bottom scrim - for the metrics rail */
+    linear-gradient(0deg,
+      rgba(14, 42, 71, 0.88) 0%,
+      rgba(14, 42, 71, 0.55) 10%,
+      transparent 22%);
+}
+
+/* Subtle film-grain over the photo only (denser than body grain) */
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.08  0 0 0 0 0.13  0 0 0 0 0.22  0 0 0 0.95 0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");
+}
+
+/* Hand-drawn orange rule */
+@keyframes ruleDraw {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.orange-rule-draw {
+  transform-origin: left center;
+  animation: ruleDraw 900ms var(--ease-out-soft) 600ms both;
+}
+
+/* ============================================================
+   Service card - orange line draws on hover
+============================================================ */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  transition:
+    background-color var(--duration-base) var(--ease-spring),
+    transform var(--duration-base) var(--ease-spring),
+    box-shadow var(--duration-base) var(--ease-spring);
+}
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--color-pillos-orange);
+  transition: width var(--duration-slow) var(--ease-out-soft);
+}
+.service-card:hover::before,
+.service-card:focus-within::before {
+  width: 100%;
+}
+
+/* ============================================================
+   Track-record row indent on hover
+============================================================ */
+.tr-row {
+  transition: padding-left var(--duration-base) var(--ease-spring),
+    background-color var(--duration-base) var(--ease-spring);
+  border-bottom: 1px solid rgba(14, 42, 71, 0.1);
+}
+.tr-row:hover {
+  padding-left: 8px;
+  background-color: rgba(249, 68, 29, 0.045);
+}
+
+/* ============================================================
+   Partner cell hover
+============================================================ */
+.partner-cell {
+  transition: color var(--duration-base) var(--ease-spring),
+    background-color var(--duration-base) var(--ease-spring);
+}
+.partner-cell:hover {
+  color: rgba(248, 246, 243, 0.95);
+  background-color: rgba(249, 68, 29, 0.09);
+}
+
+/* ============================================================
+   Header scrolled
+============================================================ */
+.header-scrolled {
+  background: rgba(248, 246, 243, 0.98);
+  backdrop-filter: saturate(140%) blur(24px);
+  -webkit-backdrop-filter: saturate(140%) blur(24px);
+  border-bottom: 1px solid rgba(14, 42, 71, 0.10);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .header-scrolled {
+    background: rgba(248, 246, 243, 1);
+  }
+}
+
+/* Nav link underline draw (left → right) on hover */
+.nav-link {
+  position: relative;
+  transition: color var(--duration-base) var(--ease-spring);
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: var(--color-pillos-orange);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--duration-base) var(--ease-spring);
+}
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+.nav-link.is-active::after {
+  transform: scaleX(1);
+}
+
+/* ============================================================
+   Type helpers
+============================================================ */
+.balance { text-wrap: balance; }
+.pretty { text-wrap: pretty; }
+
+.font-serif-kr {
+  font-family: var(--font-serif-kr);
+}
+
+/* Tabular figures - for metrics, years, specs */
+.tabular {
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum", "lnum";
+}
+
+/* Eyebrow - uppercase tracked (primary) */
+/* Sub-page hero scrim - left/top/bottom navy gradient over the background photo.
+   Tuned to keep light text legible even over bright images (e.g. HSE sky). */
+.page-hero-scrim {
+  background:
+    /* top - protects the floating header */
+    linear-gradient(180deg,
+      rgba(14, 42, 71, 0.62) 0%,
+      rgba(14, 42, 71, 0.18) 22%,
+      transparent 46%),
+    /* left-heavy - sits under the headline block */
+    linear-gradient(100deg,
+      rgba(14, 42, 71, 0.92) 0%,
+      rgba(14, 42, 71, 0.7) 34%,
+      rgba(14, 42, 71, 0.4) 64%,
+      rgba(14, 42, 71, 0.2) 100%),
+    /* bottom - eases into the section below */
+    linear-gradient(0deg,
+      rgba(14, 42, 71, 0.78) 0%,
+      rgba(14, 42, 71, 0.28) 16%,
+      transparent 40%);
+}
+
+@media (max-width: 767px) {
+  /* Stronger, more even darkening on the narrow mobile band */
+  .page-hero-scrim {
+    background:
+      linear-gradient(180deg,
+        rgba(14, 42, 71, 0.66) 0%,
+        rgba(14, 42, 71, 0.32) 30%,
+        rgba(14, 42, 71, 0.4) 70%,
+        rgba(14, 42, 71, 0.82) 100%),
+      linear-gradient(100deg,
+        rgba(14, 42, 71, 0.7) 0%,
+        rgba(14, 42, 71, 0.4) 60%,
+        rgba(14, 42, 71, 0.3) 100%);
+  }
+}
+
+.eyebrow {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  font-weight: 600;
+}
+
+/* Sub-page hero overline (회사소개 / SERVICES …) - larger than before */
+.page-eyebrow {
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow-loud);
+  font-weight: 600;
+}
+
+/* Hero title is English in both languages, so keep the EN display look (serif + display size)
+   even on lang=ko, overriding the Korean font/size rules above. */
+html:lang(ko) .hero-title,
+html:lang(ko) .hero-title span {
+  font-family: var(--font-serif) !important;
+  font-weight: 400 !important; /* DM Serif is 400 only; cancel lang(ko) h1 bold and the Korean font on the inner span */
+}
+html:lang(ko) .hero-title {
+  font-size: var(--text-display) !important;
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+}
+
+/* Korean reads better slightly larger and bold for section labels */
+html:lang(ko) .eyebrow {
+  font-weight: 700;
+  font-size: 1.0625rem;
+  letter-spacing: 0.02em;
+}
+html:lang(ko) .page-eyebrow {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: 0.04em;
+}
+/* Latin-only overlines ("HSE", "CONTACT") keep the English treatment in both
+   locales so they do not resize or shift when switching language. */
+html:lang(ko) .page-eyebrow-latin,
+.page-eyebrow-latin {
+  font-family: var(--font-inter), sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 0.8125rem !important;
+  letter-spacing: var(--tracking-eyebrow-loud) !important;
+}
+
+/* Eyebrow - quiet italic serif lowercase (variant) */
+.eyebrow-quiet {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.875rem;
+  letter-spacing: var(--tracking-eyebrow-quiet);
+  text-transform: none;
+  font-weight: 400;
+}
+
+/* Headline tokens */
+.tx-display {
+  font-family: var(--font-serif);
+  font-size: var(--text-display);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+}
+.tx-h1 {
+  font-family: var(--font-serif);
+  font-size: var(--text-h1);
+  line-height: var(--leading-h1);
+  letter-spacing: var(--tracking-h1);
+}
+.tx-h2 {
+  font-family: var(--font-serif);
+  font-size: var(--text-h2);
+  line-height: var(--leading-h2);
+  letter-spacing: var(--tracking-h2);
+}
+.tx-h3 {
+  font-family: var(--font-serif);
+  font-size: var(--text-h3);
+  line-height: var(--leading-h3);
+  letter-spacing: var(--tracking-h2);
+}
+
+/* ============================================================
+   Tab fade-in
+============================================================ */
+@keyframes tabFade {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.tab-fade-in {
+  animation: tabFade 380ms var(--ease-out-soft) both;
+}
+
+/* Ghost watermark fill */
+.ghost-fill {
+  color: transparent;
+  -webkit-text-stroke: 0;
+  background: linear-gradient(180deg, rgba(14, 42, 71, 0.14), rgba(14, 42, 71, 0.07));
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: rgba(14, 42, 71, 0.12);
+}
+
+/* ============================================================
+   Card system - Double-Bezel (Doppelrand) heritage card
+============================================================ */
+.card-bezel {
+  position: relative;
+  background: var(--color-cloud-white);
+  border: 1px solid rgba(14, 42, 71, 0.14);
+  box-shadow:
+    inset 0 0 0 1px rgba(248, 246, 243, 0.7),
+    0 1px 2px rgba(14, 42, 71, 0.04),
+    0 8px 24px -10px rgba(14, 42, 71, 0.08);
+  transition:
+    transform var(--duration-base) var(--ease-spring),
+    box-shadow var(--duration-base) var(--ease-spring),
+    border-color var(--duration-base) var(--ease-spring);
+}
+.card-bezel::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  pointer-events: none;
+  border: 1px solid rgba(14, 42, 71, 0.08);
+}
+
+/* Card hover - lift + tinted ring */
+.card-hover {
+  transition:
+    transform var(--duration-base) var(--ease-spring),
+    box-shadow var(--duration-base) var(--ease-spring),
+    border-color var(--duration-base) var(--ease-spring);
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  border-color: rgba(249, 68, 29, 0.35);
+  box-shadow:
+    0 2px 4px rgba(14, 42, 71, 0.05),
+    0 18px 36px -14px rgba(14, 42, 71, 0.14);
+}
+
+/* ============================================================
+   Button - heritage primary with trailing icon
+============================================================ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--color-maritime-navy);
+  color: var(--color-cloud-white);
+  padding: 0.875rem 1.75rem;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow-loud);
+  transition:
+    background-color var(--duration-base) var(--ease-spring),
+    transform var(--duration-fast) var(--ease-spring),
+    box-shadow var(--duration-base) var(--ease-spring);
+  box-shadow: 0 1px 2px rgba(14, 42, 71, 0.08), 0 6px 14px -6px rgba(14, 42, 71, 0.18);
+}
+.btn-primary:hover {
+  background: var(--color-pillos-orange);
+}
+.btn-primary:active {
+  transform: scale(0.98);
+}
+.btn-primary .btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1px solid rgba(248, 246, 243, 0.4);
+  border-radius: 9999px;
+  font-size: 11px;
+  transition: transform var(--duration-base) var(--ease-spring),
+    border-color var(--duration-base) var(--ease-spring);
+}
+.btn-primary:hover .btn-icon {
+  transform: translate(2px, -1px);
+  border-color: rgba(248, 246, 243, 0.7);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid rgba(14, 42, 71, 0.4);
+  padding-bottom: 0.25rem;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow-loud);
+  color: var(--color-maritime-navy);
+  transition:
+    color var(--duration-base) var(--ease-spring),
+    border-color var(--duration-base) var(--ease-spring);
+}
+.btn-ghost:hover {
+  border-color: var(--color-pillos-orange);
+  color: var(--color-pillos-orange);
+}
+.btn-ghost.on-dark {
+  color: var(--color-cloud-white);
+  border-color: rgba(248, 246, 243, 0.4);
+}
+.btn-ghost.on-dark:hover {
+  border-color: var(--color-pillos-orange);
+  color: var(--color-pillos-orange);
+}
+.btn-ghost .btn-arrow {
+  display: inline-block;
+  transition: transform var(--duration-base) var(--ease-spring);
+}
+.btn-ghost:hover .btn-arrow {
+  transform: translate(3px, -1px);
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-maritime-navy);
+  color: var(--color-cloud-white);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
