@@ -12,11 +12,14 @@ const MAX_LENGTHS = {
   message: 5000,
 } as const;
 
+const MAX_PHONE_LENGTH = 40;
+
 type Payload = {
   company: string;
   name: string;
   email: string;
   message: string;
+  phone: string;
 };
 
 // Per-instance throttle. Serverless instances are short-lived, so this is a
@@ -69,6 +72,7 @@ function parse(body: unknown): { data?: Payload; error?: string } {
     name: String(raw.name ?? "").trim(),
     email: String(raw.email ?? "").trim(),
     message: String(raw.message ?? "").trim(),
+    phone: String(raw.phone ?? "").trim(),
   };
 
   for (const [key, limit] of Object.entries(MAX_LENGTHS)) {
@@ -76,6 +80,8 @@ function parse(body: unknown): { data?: Payload; error?: string } {
     if (!value) return { error: `missing_${key}` };
     if (value.length > limit) return { error: `too_long_${key}` };
   }
+  // Phone is optional, so it is only length-checked.
+  if (fields.phone.length > MAX_PHONE_LENGTH) return { error: "too_long_phone" };
   if (!isEmail(fields.email)) return { error: "invalid_email" };
   if (fields.message.length < 5) return { error: "missing_message" };
 
@@ -87,6 +93,7 @@ function buildMessage(data: Payload, receivedAt: string) {
     ["Company", data.company],
     ["Name", data.name],
     ["E-mail", data.email],
+    ...(data.phone ? [["Contact Number", data.phone]] : []),
     ["Received", receivedAt],
   ];
 
@@ -168,6 +175,7 @@ async function sendTelegram(data: Payload, receivedAt: string) {
     `회사: ${data.company}`,
     `성함: ${data.name}`,
     `이메일: ${data.email}`,
+    ...(data.phone ? [`연락처: ${data.phone}`] : []),
     `접수: ${receivedAt}`,
     "",
     data.message.slice(0, 2000),

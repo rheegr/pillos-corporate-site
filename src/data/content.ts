@@ -527,8 +527,12 @@ export const inquiryForm = {
     company: { en: "Company", ko: "회사명" },
     name: { en: "Name", ko: "성함" },
     email: { en: "E-mail", ko: "이메일" },
+    phone: { en: "Contact Number (Optional)", ko: "연락처 (선택)" },
     message: { en: "Message", ko: "문의 내용" },
   },
+  phonePlaceholder: { en: "10 1234 5678", ko: "10 1234 5678" },
+  countrySearch: { en: "Search country or code", ko: "국가명 또는 번호 검색" },
+  countryEmpty: { en: "No matching country", ko: "일치하는 국가가 없습니다" },
   submit: { en: "Send Message", ko: "문의 발송" },
   sending: { en: "Sending...", ko: "발송 중..." },
   success: {

@@ -3,11 +3,12 @@
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { inquiryForm } from "@/data/content";
+import PhoneField from "./PhoneField";
 import Reveal from "./Reveal";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
-const EMPTY = { name: "", company: "", email: "", message: "" };
+const EMPTY = { name: "", company: "", email: "", message: "", phoneDial: "+82", phoneNumber: "" };
 
 export default function InquiryForm() {
   const { t } = useLanguage();
@@ -28,10 +29,11 @@ export default function InquiryForm() {
     if (status === "sending") return;
     setStatus("sending");
     try {
+      const phone = form.phoneNumber.trim() ? `${form.phoneDial} ${form.phoneNumber.trim()}` : "";
       const res = await fetch("/api/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, website }),
+        body: JSON.stringify({ ...form, phone, website }),
       });
       if (!res.ok) throw new Error(`request failed: ${res.status}`);
       setStatus("sent");
@@ -78,13 +80,19 @@ export default function InquiryForm() {
                   required
                 />
               </div>
-              <div className="mt-6">
+              <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Field
                   type="email"
                   label={t(inquiryForm.fields.email)}
                   value={form.email}
                   onChange={(v) => setForm({ ...form, email: v })}
                   required
+                />
+                <PhoneField
+                  dial={form.phoneDial}
+                  number={form.phoneNumber}
+                  onDialChange={(v) => setForm({ ...form, phoneDial: v })}
+                  onNumberChange={(v) => setForm({ ...form, phoneNumber: v })}
                 />
               </div>
               <div className="mt-6">
