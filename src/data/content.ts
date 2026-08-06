@@ -530,6 +530,16 @@ export const inquiryForm = {
     message: { en: "Message", ko: "문의 내용" },
   },
   submit: { en: "Send Message", ko: "문의 발송" },
+  sending: { en: "Sending...", ko: "발송 중..." },
+  success: {
+    en: "Thank you. Your enquiry has been sent and our team will be in touch shortly.",
+    ko: "문의가 정상적으로 접수되었습니다. 담당자가 확인 후 회신드리겠습니다.",
+  },
+  error: {
+    en: "The message could not be sent. Please e-mail us directly at info@pillos.co.kr.",
+    ko: "문의 발송에 실패했습니다. info@pillos.co.kr 로 직접 메일 주시면 확인하겠습니다.",
+  },
+  errorAction: { en: "Send by e-mail instead", ko: "메일로 직접 보내기" },
   recipient: "info@pillos.co.kr",
 };
 

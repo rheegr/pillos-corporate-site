@@ -5,17 +5,40 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { inquiryForm } from "@/data/content";
 import Reveal from "./Reveal";
 
+type Status = "idle" | "sending" | "sent" | "error";
+
+const EMPTY = { name: "", company: "", email: "", message: "" };
+
 export default function InquiryForm() {
   const { t } = useLanguage();
-  const [form, setForm] = useState({ name: "", company: "", email: "", message: "" });
+  const [form, setForm] = useState(EMPTY);
+  const [website, setWebsite] = useState(""); // honeypot
+  const [status, setStatus] = useState<Status>("idle");
 
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const mailtoHref = () => {
     const subject = encodeURIComponent(`Enquiry from ${form.name} (${form.company})`);
     const body = encodeURIComponent(
       `${form.message}\n\n---\nFrom: ${form.name}, ${form.company}\nEmail: ${form.email}`,
     );
-    window.location.href = `mailto:${inquiryForm.recipient}?subject=${subject}&body=${body}`;
+    return `mailto:${inquiryForm.recipient}?subject=${subject}&body=${body}`;
+  };
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (status === "sending") return;
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/inquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, website }),
+      });
+      if (!res.ok) throw new Error(`request failed: ${res.status}`);
+      setStatus("sent");
+      setForm(EMPTY);
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -73,11 +96,49 @@ export default function InquiryForm() {
                   required
                 />
               </div>
-              <div className="mt-8">
-                <button type="submit" className="btn-primary">
-                  {t(inquiryForm.submit)}
-                  <span aria-hidden className="btn-icon">→</span>
+              <div
+                aria-hidden
+                className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden"
+              >
+                <label>
+                  Website
+                  <input
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={website}
+                    onChange={(e) => setWebsite(e.target.value)}
+                  />
+                </label>
+              </div>
+
+              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+                <button
+                  type="submit"
+                  className="btn-primary disabled:opacity-60 disabled:cursor-not-allowed"
+                  disabled={status === "sending"}
+                >
+                  {status === "sending" ? t(inquiryForm.sending) : t(inquiryForm.submit)}
+                  <span aria-hidden className="btn-icon">
+                    →
+                  </span>
                 </button>
+
+                <p
+                  role="status"
+                  aria-live="polite"
+                  className="text-[13.5px] leading-[1.6] text-[#1a1a1a]/70"
+                >
+                  {status === "sent" && t(inquiryForm.success)}
+                  {status === "error" && (
+                    <span className="text-[#c1301a]">
+                      {t(inquiryForm.error)}{" "}
+                      <a href={mailtoHref()} className="underline underline-offset-4">
+                        {t(inquiryForm.errorAction)}
+                      </a>
+                    </span>
+                  )}
+                </p>
               </div>
             </form>
           </Reveal>
