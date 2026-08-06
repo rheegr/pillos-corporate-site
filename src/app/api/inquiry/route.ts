@@ -82,16 +82,7 @@ function parse(body: unknown): { data?: Payload; error?: string } {
   return { data: fields };
 }
 
-async function sendEmail(data: Payload, receivedAt: string) {
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = (process.env.INQUIRY_TO ?? "info@pillos.co.kr")
-    .split(",")
-    .map((entry) => entry.trim())
-    .filter(Boolean);
-  const from = process.env.INQUIRY_FROM;
-
-  if (!apiKey || !from || to.length === 0) throw new Error("email_not_configured");
-
+function buildMessage(data: Payload, receivedAt: string) {
   const lines = [
     ["Company", data.company],
     ["Name", data.name],
@@ -119,6 +110,23 @@ ${lines
     data.message,
   ].join("\n");
 
+  const subject = `[필로스 웹사이트 문의] ${data.company} / ${data.name}`;
+  // No default recipient on purpose: an unset INQUIRY_TO must fail loudly
+  // rather than quietly mailing the company address.
+  const to = (process.env.INQUIRY_TO ?? "")
+    .split(",")
+    .map((entry) => entry.trim())
+    .filter(Boolean);
+
+  return { subject, html, text, to, replyTo: data.email };
+}
+
+type Message = ReturnType<typeof buildMessage>;
+
+async function sendViaResend(msg: Message, from: string) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) return false;
+
   const res = await fetch(RESEND_ENDPOINT, {
     method: "POST",
     headers: {
@@ -127,17 +135,27 @@ ${lines
     },
     body: JSON.stringify({
       from,
-      to,
-      reply_to: data.email,
-      subject: `[필로스 웹사이트 문의] ${data.company} / ${data.name}`,
-      html,
-      text,
+      to: msg.to,
+      reply_to: msg.replyTo,
+      subject: msg.subject,
+      html: msg.html,
+      text: msg.text,
     }),
   });
 
   if (!res.ok) {
     throw new Error(`resend_${res.status}: ${(await res.text()).slice(0, 200)}`);
   }
+  return true;
+}
+
+async function sendEmail(data: Payload, receivedAt: string) {
+  const from = process.env.INQUIRY_FROM;
+  const msg = buildMessage(data, receivedAt);
+  if (!from || msg.to.length === 0) throw new Error("email_not_configured");
+
+  if (await sendViaResend(msg, from)) return;
+  throw new Error("email_not_configured");
 }
 
 async function sendTelegram(data: Payload, receivedAt: string) {
