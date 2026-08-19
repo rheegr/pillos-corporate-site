@@ -543,6 +543,31 @@ export const inquiryForm = {
     en: "The message could not be sent. Please e-mail us directly at info@pillos.co.kr.",
     ko: "문의 발송에 실패했습니다. info@pillos.co.kr 로 직접 메일 주시면 확인하겠습니다.",
   },
+  errors: {
+    missing_company: { en: "Please enter your company name.", ko: "회사명을 입력해 주세요." },
+    missing_name: { en: "Please enter your name.", ko: "성함을 입력해 주세요." },
+    missing_email: { en: "Please enter your e-mail address.", ko: "이메일 주소를 입력해 주세요." },
+    missing_message: {
+      en: "Please write a bit more in your message.",
+      ko: "문의 내용을 조금 더 적어 주세요.",
+    },
+    invalid_email: {
+      en: "Please check your e-mail address format.",
+      ko: "이메일 주소 형식을 확인해 주세요.",
+    },
+    too_long_company: { en: "Company name is too long.", ko: "회사명이 너무 깁니다." },
+    too_long_name: { en: "Name is too long.", ko: "성함이 너무 깁니다." },
+    too_long_email: { en: "E-mail address is too long.", ko: "이메일 주소가 너무 깁니다." },
+    too_long_message: {
+      en: "Message is too long. Please shorten it and try again.",
+      ko: "문의 내용이 너무 깁니다. 조금 줄여서 다시 보내 주세요.",
+    },
+    too_long_phone: { en: "Contact number is too long.", ko: "연락처가 너무 깁니다." },
+    rate_limited: {
+      en: "Too many attempts in a short time. Please try again shortly.",
+      ko: "짧은 시간에 너무 많이 시도하셨습니다. 잠시 후 다시 시도해 주세요.",
+    },
+  } as Record<string, { en: string; ko: string }>,
   errorAction: { en: "Send by e-mail instead", ko: "메일로 직접 보내기" },
   recipient: "info@pillos.co.kr",
 };

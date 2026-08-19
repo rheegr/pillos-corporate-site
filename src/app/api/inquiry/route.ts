@@ -83,7 +83,7 @@ function parse(body: unknown): { data?: Payload; error?: string } {
   // Phone is optional, so it is only length-checked.
   if (fields.phone.length > MAX_PHONE_LENGTH) return { error: "too_long_phone" };
   if (!isEmail(fields.email)) return { error: "invalid_email" };
-  if (fields.message.length < 5) return { error: "missing_message" };
+  if (fields.message.length < 2) return { error: "missing_message" };
 
   return { data: fields };
 }

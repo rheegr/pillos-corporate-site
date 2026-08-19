@@ -15,6 +15,7 @@ export default function InquiryForm() {
   const [form, setForm] = useState(EMPTY);
   const [website, setWebsite] = useState(""); // honeypot
   const [status, setStatus] = useState<Status>("idle");
+  const [errorCode, setErrorCode] = useState<string | null>(null);
 
   const mailtoHref = () => {
     const subject = encodeURIComponent(`Enquiry from ${form.name} (${form.company})`);
@@ -28,6 +29,7 @@ export default function InquiryForm() {
     e.preventDefault();
     if (status === "sending") return;
     setStatus("sending");
+    setErrorCode(null);
     try {
       const phone = form.phoneNumber.trim() ? `${form.phoneDial} ${form.phoneNumber.trim()}` : "";
       const res = await fetch("/api/inquiry", {
@@ -35,10 +37,16 @@ export default function InquiryForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...form, phone, website }),
       });
-      if (!res.ok) throw new Error(`request failed: ${res.status}`);
+      const json = await res.json().catch(() => null);
+      if (!res.ok) {
+        setErrorCode(typeof json?.error === "string" ? json.error : null);
+        setStatus("error");
+        return;
+      }
       setStatus("sent");
       setForm(EMPTY);
     } catch {
+      setErrorCode(null);
       setStatus("error");
     }
   };
@@ -140,7 +148,9 @@ export default function InquiryForm() {
                   {status === "sent" && t(inquiryForm.success)}
                   {status === "error" && (
                     <span className="text-[#c1301a]">
-                      {t(inquiryForm.error)}{" "}
+                      {t(
+                        (errorCode && inquiryForm.errors[errorCode]) || inquiryForm.error,
+                      )}{" "}
                       <a href={mailtoHref()} className="underline underline-offset-4">
                         {t(inquiryForm.errorAction)}
                       </a>
