@@ -4,6 +4,5 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [{ userAgent: "*", allow: "/" }],
     sitemap: "https://pillos.co.kr/sitemap.xml",
-    host: "https://pillos.co.kr",
   };
 }
