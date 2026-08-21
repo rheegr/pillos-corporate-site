@@ -96,11 +96,11 @@ export const about = {
   paragraphs: [
     {
       en: "Pillos is a Korean ocean carrier established in 2009. Across bulk, gas, and chemical sectors, we move the essential cargo industry depends on - raw materials, energy, and chemical products. More than fifteen years of operational experience and a global network are our greatest assets, underpinning everything we do. We are not simply a carrier; we are a carrier whose commitments hold.",
-      ko: "필로스는 2009년 설립 이래 원자재, 에너지, 화학 제품 등 산업의 기반이 되는 핵심 화물을 안정적으로 수송해 왔습니다. 15년이 넘는 운항 경험과 글로벌 네트워크는 필로스를 지탱하는 가장 큰 자산이자 기반입니다. 우리는 단순히 화물을 나르는 선사를 넘어, 고객사와 맺은 약속을 끝까지 책임지는 해운사입니다.",
+      ko: "필로스는 2009년 설립 이래 원자재, 에너지, 화학 제품 등 산업의 기반이 되는 핵심 화물을 안정적으로 수송해 왔습니다. 15년이 넘는 운항 경험과 글로벌 네트워크는 필로스를 지탱하는 가장 큰 자산이자 기반입니다. 저희는 단순히 화물을 나르는 선사를 넘어, 고객사와 맺은 약속을 끝까지 책임지는 해운사입니다.",
     },
     {
       en: "The principle we live by is clear: trust comes before immediate gains, and commitments must be held even tighter during difficult times. Through the turbulence of the pandemic years, despite rising costs and market disruptions, we honoured every contract exactly as agreed. Having weathered those challenging times, our principles have proven right, and the trust we built remains our strongest competitive advantage in maintaining long-standing relationships with our partners worldwide.",
-      ko: "우리가 지켜온 원칙은 분명합니다. 신뢰는 눈앞의 이익보다 앞서야 하며, 어려운 시기일수록 약속은 더욱 무겁게 지켜져야 한다는 것입니다. 팬데믹으로 글로벌 물류 환경이 급변하고 큰 비용 부담이 발생하던 시기에도 모든 계약을 조건 그대로 성실히 이행해 냈습니다. 위기 속에서 묵묵히 증명해 온 이 신뢰야말로 오늘날 국내외 화주들과 오랜 인연을 이어갈 수 있는 필로스의 가장 강력한 경쟁력입니다.",
+      ko: "저희가 지켜온 원칙은 분명합니다. 신뢰는 눈앞의 이익보다 앞서야 하며, 어려운 시기일수록 약속은 더욱 무겁게 지켜져야 한다는 것입니다. 팬데믹으로 글로벌 물류 환경이 급변하고 큰 비용 부담이 발생하던 시기에도 모든 계약을 조건 그대로 성실히 이행해 냈습니다. 위기 속에서 묵묵히 증명해 온 이 신뢰야말로 오늘날 국내외 화주들과 오랜 인연을 이어갈 수 있는 필로스의 가장 강력한 경쟁력입니다.",
     },
   ] as Bi[],
 };
