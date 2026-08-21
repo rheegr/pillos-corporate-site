@@ -4,6 +4,7 @@ import PageHero from "@/components/PageHero";
 import About from "@/components/About";
 import VisionMissionValues from "@/components/VisionMissionValues";
 import FromTheBridge from "@/components/FromTheBridge";
+import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import { pageHeroes } from "@/data/content";
 
@@ -27,6 +28,7 @@ export default function AboutPage() {
       <About />
       <FromTheBridge />
       <VisionMissionValues />
+      <FAQ />
       <Footer />
     </main>
   );

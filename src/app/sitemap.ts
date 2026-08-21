@@ -1,6 +1,6 @@
 ﻿import type { MetadataRoute } from "next";
 
-const base = "https://pillos-website-v2.vercel.app";
+const base = "https://pillos.co.kr";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

@@ -301,6 +301,78 @@ export const contact = {
   },
 };
 
+// ---------- FAQ (About page - also emitted as FAQPage JSON-LD) ----------
+
+export const faq = {
+  overline: { en: "FAQ", ko: "자주 묻는 질문" },
+  heading: {
+    en: "Frequently Asked Questions",
+    ko: "필로스에 대해 자주 묻는 질문",
+  },
+  items: [
+    {
+      q: {
+        en: "What kind of company is Pillos?",
+        ko: "필로스는 어떤 회사인가요?",
+      },
+      a: {
+        en: "Pillos is a Korean ocean carrier (shipping company) founded in Seoul in 2009. We operate dry bulk, gas (LPG), and chemical tanker vessels, carrying cargo across global trade routes for shippers, charterers, and trading partners.",
+        ko: "필로스는 2009년 서울에서 설립된 대한민국 해상운송선사(외항해운사)입니다. 벌크(건화물), 가스(LPG), 케미컬 탱커 선박을 운항하며 국내외 화주 및 파트너사의 화물을 글로벌 항로로 운송합니다.",
+      },
+    },
+    {
+      q: {
+        en: "What cargo does Pillos carry?",
+        ko: "필로스는 어떤 화물을 운송하나요?",
+      },
+      a: {
+        en: "Three cargo classes: dry bulk (coal, iron ore, grain, steel products, cement), gas (LPG and olefin gases), and liquid chemicals (hydrochloric acid, benzene, base oil). Each is operated under dedicated vessel types and safety standards suited to the cargo.",
+        ko: "벌크(석탄, 철광석, 곡물, 철강재, 시멘트), 가스(LPG, 올레핀), 케미컬(염산, 벤젠, 베이스오일) 세 가지 화물군을 운송합니다. 화물 특성에 맞는 전용 선형과 안전 기준으로 운항합니다.",
+      },
+    },
+    {
+      q: {
+        en: "Which routes and countries does Pillos serve?",
+        ko: "필로스는 어떤 항로와 국가를 운항하나요?",
+      },
+      a: {
+        en: "Pillos operates across Korea, Japan, China, Indonesia, Vietnam, Australia, Russia, and the Americas, as well as key intra-Asia lanes, serving steelmakers, petrochemical and refining companies, power utilities, and global trading houses.",
+        ko: "한국, 일본, 중국, 인도네시아, 베트남, 호주, 러시아, 남미 등 주요 항로와 아시아 역내 항로를 운항하며, 철강사, 석유화학·정유사, 발전사, 종합상사 등을 고객으로 두고 있습니다.",
+      },
+    },
+    {
+      q: {
+        en: "How long has Pillos been in business?",
+        ko: "필로스는 설립된 지 얼마나 되었나요?",
+      },
+      a: {
+        en: "Pillos was founded in 2009 and has over 15 years of continuous operating history, including uninterrupted contract performance through the pandemic-era shipping disruptions.",
+        ko: "필로스는 2009년 설립되어 15년 이상 운항해 왔으며, 팬데믹 기간의 물류 혼란 속에서도 모든 계약을 중단 없이 이행했습니다.",
+      },
+    },
+    {
+      q: {
+        en: "Is Pillos a member of any shipping industry associations?",
+        ko: "필로스는 해운 관련 협회에 가입되어 있나요?",
+      },
+      a: {
+        en: "Yes. Pillos is a full member of the Korea Shipping Association (since 2016) and the Korea Shipowners' Association (since 2018).",
+        ko: "네. 필로스는 2016년 한국해운조합, 2018년 한국선주협회에 정회원으로 가입되어 있습니다.",
+      },
+    },
+    {
+      q: {
+        en: "How can I contact Pillos or request a quote?",
+        ko: "필로스에 문의하거나 견적을 요청하려면 어떻게 하나요?",
+      },
+      a: {
+        en: "Reach us at info@pillos.co.kr or +82-2-318-1703, or use the contact form on this site. Our head office is on the 7th floor, 9 Chungmu-ro, Jung-gu, Seoul.",
+        ko: "info@pillos.co.kr 또는 +82-2-318-1703으로 연락 주시거나, 사이트 내 문의 양식을 이용해 주세요. 본사는 서울특별시 중구 충무로 9, 7층에 위치합니다.",
+      },
+    },
+  ] as { q: Bi; a: Bi }[],
+};
+
 // ---------- Page heroes (sub-pages) ----------
 
 export const pageHeroes = {

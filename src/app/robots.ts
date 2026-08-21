@@ -3,6 +3,6 @@
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [{ userAgent: "*", allow: "/" }],
-    sitemap: "https://pillos-website-v2.vercel.app/sitemap.xml",
+    sitemap: "https://pillos.co.kr/sitemap.xml",
   };
 }

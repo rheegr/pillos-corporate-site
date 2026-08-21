@@ -109,6 +109,15 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  // TODO(Gary): Naver Search Advisor(https://searchadvisor.naver.com) 가입 후
+  // 사이트 소유확인 메타태그 코드로 아래 값을 교체. Google Search Console도
+  // 같은 방식으로 site-verification 코드 받으면 google 키에 채워넣기.
+  verification: {
+    // google: "GOOGLE_SITE_VERIFICATION_CODE",
+    other: {
+      // "naver-site-verification": "NAVER_VERIFICATION_CODE",
+    },
+  },
 };
 
 export const viewport: Viewport = {
@@ -164,6 +173,10 @@ const orgSchema = {
   ],
   naics: "483111",
   areaServed: ["KR", "JP", "CN", "AU", "Southeast Asia", "Global"],
+  memberOf: [
+    { "@type": "Organization", name: "Korea Shipowners' Association" },
+    { "@type": "Organization", name: "Korea Shipping Association" },
+  ],
 };
 
 const websiteSchema = {
