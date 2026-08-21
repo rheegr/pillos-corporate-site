@@ -177,6 +177,9 @@ const orgSchema = {
     { "@type": "Organization", name: "Korea Shipowners' Association" },
     { "@type": "Organization", name: "Korea Shipping Association" },
   ],
+  sameAs: [
+    "https://www.linkedin.com/company/pillos/",
+  ],
 };
 
 const websiteSchema = {
