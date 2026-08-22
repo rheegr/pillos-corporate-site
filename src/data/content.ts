@@ -176,7 +176,7 @@ export const services = {
         en: "Hydrochloric acid from the port of Yeosu under a long-standing petrochemical partnership. More than a decade incident-free.",
         ko: "여수항에서 국내 석유화학 기업과의 장기 파트너십 아래 염산을 운송합니다. 10년 이상 무사고 운항을 이어오고 있습니다",
       },
-      tag: { en: "Hydrochloric Acid · Yeosu", ko: "염산, 여수" },
+      tag: { en: "Hydrochloric Acid, Yeosu", ko: "염산, 여수" },
       accent: true,
     },
   ],
@@ -428,7 +428,7 @@ export const servicesTabs = {
       },
       paragraphs: [
         {
-          en: "Pillos runs dry bulk carriers from Handysize and Supramax up to Panamax and Kamsarmax. Trading in dry bulk since 2010, we utilize our own tonnage alongside chartered vessels to move critical raw materials including coal, iron ore, steel products, cement, and grain.",
+          en: "Pillos runs dry bulk carriers from Handysize and Supramax up to Panamax and Kamsarmax. Trading in dry bulk since 2010, we utilize our own tonnage alongside chartered vessels to move critical raw materials including coal, coke, iron ore, minerals, limestone, steel products, cement, grain, and bauxite.",
           ko: "필로스는 핸디사이즈와 수프라막스부터 파나막스, 캄사르막스에 이르는 다양한 벌크 선형을 운항합니다. 2010년부터 사선과 용선을 효율적으로 운용하며 석탄, 코크스, 철광석, 광물, 석회석, 철강재, 시멘트, 곡물, 보크사이트 등 도시와 산업 기반이 되는 원자재를 안정적으로 수송해 왔습니다.",
         },
         {
