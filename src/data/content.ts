@@ -699,3 +699,75 @@ export const hse = {
     ko: "필로스의 모든 임직원은 철저한 책임의식과 적극적인 의무 이행을 통해 안전과 환경을 지키는 일을 일상의 가장 중요한 원칙으로 삼고 지속 가능한 경영 기반을 구축하고 있습니다.",
   },
 };
+
+// FAQ - homepage section + FAQPage structured data (GEO: gives answer engines
+// quotable, self-contained answers about the company)
+export const faq = {
+  overline: { en: "FAQ", ko: "자주 묻는 질문" } as Bi,
+  heading: {
+    en: "Frequently Asked Questions",
+    ko: "자주 묻는 질문",
+  } as Bi,
+  items: [
+    {
+      q: {
+        en: "What does Pillos do?",
+        ko: "필로스는 어떤 회사인가요?",
+      },
+      a: {
+        en: "Pillos Co., Ltd. (주식회사 필로스) is a Korean ocean carrier founded in 2009 and headquartered in Seoul. Across three sectors - dry bulk, gas (LPG), and chemical tankers - we carry the raw materials, energy, and chemical products that global industry depends on.",
+        ko: "주식회사 필로스(Pillos Co., Ltd.)는 2009년에 설립되어 서울에 본사를 둔 대한민국 외항 해운사입니다. 벌크, 가스(LPG), 케미컬 세 가지 분야에서 원자재, 에너지, 화학 제품을 전 세계 항로로 운송합니다.",
+      },
+    },
+    {
+      q: {
+        en: "What cargo does Pillos carry?",
+        ko: "어떤 화물을 운송하나요?",
+      },
+      a: {
+        en: "Dry bulk such as coal, coke, iron ore, minerals, limestone, cement, grain, and bauxite; liquefied gases including LPG, ethylene, propylene, butadiene, and VCM; and liquid chemicals including hydrochloric acid and other petrochemical feedstocks.",
+        ko: "석탄, 코크스, 철광석, 광물, 석회석, 시멘트, 곡물, 보크사이트 등 건화물, LPG·에틸렌·프로필렌·부타디엔·VCM 등 액화가스, 그리고 염산을 비롯한 액상 화학제품을 운송합니다.",
+      },
+    },
+    {
+      q: {
+        en: "What vessels does Pillos operate?",
+        ko: "어떤 선박을 운항하나요?",
+      },
+      a: {
+        en: "Pillos owns MT GRACE (tanker), MV JADE (bulk carrier), and MT PILLOS 1 (chemical tanker), and operates additional chartered-in tonnage. In dry bulk we run vessels from Handysize and Supramax up to Panamax and Kamsarmax.",
+        ko: "MT GRACE(탱커), MV JADE(벌크선), MT PILLOS 1(케미컬 탱커)를 자체 보유하고 추가 용선 선대를 운영합니다. 벌크 분야에서는 핸디사이즈·수프라막스부터 파나막스·캄사르막스까지 운항합니다.",
+      },
+    },
+    {
+      q: {
+        en: "Where is Pillos located?",
+        ko: "회사는 어디에 있나요?",
+      },
+      a: {
+        en: "7th Floor, 9 Chungmu-ro, Jung-gu, Seoul 04554, South Korea. You can reach us at +82-2-318-1703 or info@pillos.co.kr.",
+        ko: "서울특별시 중구 충무로 9, 7층 (우편번호 04554)입니다. 전화 +82-2-318-1703, 이메일 info@pillos.co.kr로 연락하실 수 있습니다.",
+      },
+    },
+    {
+      q: {
+        en: "How do I request a charter or freight quote?",
+        ko: "용선·운임 견적은 어떻게 요청하나요?",
+      },
+      a: {
+        en: "Email info@pillos.co.kr, call +82-2-318-1703, or use the inquiry form on our Contact page. Our chartering team works in both Korean and English.",
+        ko: "info@pillos.co.kr 또는 +82-2-318-1703으로 연락 주시거나, 문의 페이지의 양식을 이용해 주세요. 한국어와 영어 모두 가능합니다.",
+      },
+    },
+    {
+      q: {
+        en: "Is Pillos the same company as Pillos Shipping (필로스해운)?",
+        ko: "필로스해운과 같은 회사인가요?",
+      },
+      a: {
+        en: "No. Pillos Co., Ltd. (㈜필로스) is the ocean carrier operating bulk, gas, and chemical vessels. Pillos Shipping Co., Ltd. (필로스해운) is a separate affiliated company with its own corporate registration.",
+        ko: "아닙니다. 주식회사 필로스는 벌크·가스·케미컬 선박을 운항하는 해운사이고, 필로스해운은 별도 사업자등록을 가진 독립 관계사 법인입니다.",
+      },
+    },
+  ] as { q: Bi; a: Bi }[],
+};

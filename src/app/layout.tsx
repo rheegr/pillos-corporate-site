@@ -1,7 +1,8 @@
-﻿import type { Metadata, Viewport } from "next";
+import type { Metadata, Viewport } from "next";
 import { DM_Serif_Display, Inter, Noto_Sans_KR, Noto_Serif_KR } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { siteUrl } from "@/data/site";
 
 const dmSerif = DM_Serif_Display({
   variable: "--font-dm-serif",
@@ -30,7 +31,6 @@ const notoSerifKr = Noto_Serif_KR({
   display: "swap",
 });
 
-const siteUrl = "https://pillos.co.kr";
 const siteName = "Pillos";
 const title = "Pillos — Korean Ocean Carrier | Bulk, Gas & Chemical Shipping";
 // Link-share preview card title (kept clean/branded; the SEO <title> above stays keyword-rich)
@@ -77,10 +77,6 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: "/",
-    languages: {
-      "en-GB": "/",
-      "ko-KR": "/",
-    },
   },
   openGraph: {
     title: ogTitle,
@@ -125,7 +121,9 @@ const orgSchema = {
   "@type": "Organization",
   name: "Pillos Co., Ltd.",
   legalName: "Pillos Co., Ltd.",
-  alternateName: ["㈜필로스", "필로스", "Pillos", "Pillos Shipping", "Pillos Co., Ltd."],
+  alternateName: ["㈜필로스", "주식회사 필로스", "필로스", "Pillos", "Pillos Shipping"],
+  disambiguatingDescription:
+    "Pillos Co., Ltd. (㈜필로스) is the Korean ocean carrier (bulk, gas and chemical shipping) headquartered in Seoul. It is a different legal entity from Pillos Shipping Co., Ltd. (필로스해운), a separate affiliate company.",
   url: siteUrl,
   logo: `${siteUrl}/pillos-logo.png`,
   image: `${siteUrl}/og-image.png`,

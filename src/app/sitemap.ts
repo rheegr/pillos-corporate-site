@@ -1,9 +1,11 @@
-﻿import type { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
+import { siteUrl } from "@/data/site";
 
-const base = "https://pillos-website-v2.vercel.app";
+const base = siteUrl;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  // Fixed date: an always-"now" lastModified is ignored by crawlers.
+  const now = new Date("2026-09-07");
   return [
     { url: `${base}/`, lastModified: now, changeFrequency: "monthly", priority: 1.0 },
     { url: `${base}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
