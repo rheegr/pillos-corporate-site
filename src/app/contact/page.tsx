@@ -5,6 +5,7 @@ import Contact from "@/components/Contact";
 import InquiryForm from "@/components/InquiryForm";
 import Footer from "@/components/Footer";
 import { pageHeroes } from "@/data/content";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: { absolute: "Contact Pillos | Korean Ocean Carrier, Seoul" },
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main id="main" className="relative">
+      <BreadcrumbJsonLd crumbs={[{ name: "Contact", path: "/contact" }]} />
       <Header />
       <PageHero
         overline={pageHeroes.contact.overline}

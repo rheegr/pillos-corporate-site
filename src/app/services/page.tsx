@@ -4,6 +4,7 @@ import PageHero from "@/components/PageHero";
 import ServicesTabs from "@/components/ServicesTabs";
 import Footer from "@/components/Footer";
 import { pageHeroes } from "@/data/content";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: { absolute: "Bulk, Gas & Chemical Shipping Services | Pillos" },
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <main id="main" className="relative">
+      <BreadcrumbJsonLd crumbs={[{ name: "Services", path: "/services" }]} />
       <Header />
       <PageHero
         overline={pageHeroes.services.overline}
