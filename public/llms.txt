@@ -26,3 +26,7 @@
 - Services (bulk, gas, chemical sector details): https://pillos.co.kr/services
 - HSE (health, safety, environment policy): https://pillos.co.kr/hse
 - Contact (chartering and freight inquiries): https://pillos.co.kr/contact
+
+## Sitemap
+
+- https://pillos.co.kr/sitemap.xml
