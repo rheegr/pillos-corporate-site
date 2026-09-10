@@ -4,6 +4,7 @@ import PageHero from "@/components/PageHero";
 import HSE from "@/components/HSE";
 import Footer from "@/components/Footer";
 import { pageHeroes } from "@/data/content";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: { absolute: "HSE — Health, Safety & Environment | Pillos" },
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 export default function HsePage() {
   return (
     <main id="main" className="relative">
+      <BreadcrumbJsonLd crumbs={[{ name: "HSE", path: "/hse" }]} />
       <Header />
       <PageHero
         overline={pageHeroes.hse.overline}

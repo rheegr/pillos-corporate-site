@@ -6,6 +6,7 @@ import VisionMissionValues from "@/components/VisionMissionValues";
 import FromTheBridge from "@/components/FromTheBridge";
 import Footer from "@/components/Footer";
 import { pageHeroes } from "@/data/content";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: { absolute: "About Pillos | Korean Ocean Carrier Since 2009" },
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main id="main" className="relative">
+      <BreadcrumbJsonLd crumbs={[{ name: "About", path: "/about" }]} />
       <Header />
       <PageHero
         overline={pageHeroes.about.overline}
