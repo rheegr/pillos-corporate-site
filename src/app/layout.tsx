@@ -160,6 +160,7 @@ const orgSchema = {
     "Hydrochloric acid transport",
     "Coal, iron ore and grain transport",
   ],
+  sameAs: ["https://www.linkedin.com/company/pillos"],
   naics: "483111",
   areaServed: ["KR", "JP", "CN", "AU", "Southeast Asia", "Global"],
 };
