@@ -1,6 +1,7 @@
-﻿"use client";
+"use client";
 
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { LANG_COOKIE, LANG_COOKIE_MAX_AGE } from "@/data/lang";
 
 export type Lang = "en" | "ko";
 
@@ -13,18 +14,51 @@ type LanguageContextValue = {
 
 const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  // Default English (matches SSR); restore the visitor's saved choice after mount.
-  const [lang, setLangState] = useState<Lang>("en");
+const LEGACY_STORAGE_KEY = "pillos-lang";
 
+function persist(lang: Lang) {
+  try {
+    // Cookie is what the server reads (src/proxy.ts) so the next page load is
+    // rendered in this language from the first byte.
+    document.cookie = `${LANG_COOKIE}=${lang}; path=/; max-age=${LANG_COOKIE_MAX_AGE}; samesite=lax`;
+  } catch {
+    /* ignore */
+  }
+  try {
+    window.localStorage.setItem(LEGACY_STORAGE_KEY, lang);
+  } catch {
+    /* ignore */
+  }
+}
+
+export function LanguageProvider({
+  children,
+  initialLang = "en",
+}: {
+  children: ReactNode;
+  /** Decided server-side (saved cookie, else visitor's IP country). */
+  initialLang?: Lang;
+}) {
+  const [lang, setLangState] = useState<Lang>(initialLang);
+
+  // Visitors from before the cookie existed have their choice only in
+  // localStorage: honour it once and move it into the cookie.
   useEffect(() => {
+    let saved: string | null = null;
+    let hasCookie = true;
     try {
-      const saved = window.localStorage.getItem("pillos-lang");
-      if (saved === "ko" || saved === "en") setLangState(saved);
+      saved = window.localStorage.getItem(LEGACY_STORAGE_KEY);
+      hasCookie = document.cookie.split("; ").some((c) => c.startsWith(`${LANG_COOKIE}=`));
     } catch {
-      /* localStorage unavailable - keep default */
+      return; /* storage unavailable - keep server decision */
     }
-  }, []);
+    if (hasCookie || (saved !== "ko" && saved !== "en")) return;
+    persist(saved);
+    if (saved === initialLang) return;
+    const legacy = saved;
+    const id = window.setTimeout(() => setLangState(legacy), 0);
+    return () => window.clearTimeout(id);
+  }, [initialLang]);
 
   useEffect(() => {
     if (typeof document !== "undefined") {
@@ -34,13 +68,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   const setLang = (next: Lang) => {
     setLangState(next);
-    try {
-      window.localStorage.setItem("pillos-lang", next);
-    } catch {
-      /* ignore */
-    }
+    persist(next);
   };
-  const toggle = () => setLangState((prev) => (prev === "en" ? "ko" : "en"));
+  const toggle = () => setLang(lang === "en" ? "ko" : "en");
   const t = <T extends { en: string; ko: string }>(value: T) => value[lang];
 
   return (

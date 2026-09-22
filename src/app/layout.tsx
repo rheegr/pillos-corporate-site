@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Serif_Display, Inter, Noto_Sans_KR, Noto_Serif_KR } from "next/font/google";
 import "./globals.css";
-import { LanguageProvider } from "@/contexts/LanguageContext";
+import { headers } from "next/headers";
+import { LanguageProvider, type Lang } from "@/contexts/LanguageContext";
+import { LANG_HEADER } from "@/data/lang";
 import { siteUrl } from "@/data/site";
 
 const dmSerif = DM_Serif_Display({
@@ -174,12 +176,15 @@ const websiteSchema = {
   inLanguage: ["en", "ko"],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  // Decided in src/proxy.ts (saved cookie, else IP country). Falls back to
+  // English when the proxy did not run (e.g. static export tooling).
+  const initialLang: Lang = (await headers()).get(LANG_HEADER) === "ko" ? "ko" : "en";
   return (
     <html
-      lang="en"
+      lang={initialLang}
       className={`${dmSerif.variable} ${inter.variable} ${notoSansKr.variable} ${notoSerifKr.variable} h-full antialiased`}
     >
       <head>
@@ -198,7 +203,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full bg-[#f8f6f3] text-[#1a1a1a]">
         <a href="#main" className="skip-link">Skip to content</a>
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider initialLang={initialLang}>{children}</LanguageProvider>
       </body>
     </html>
   );
