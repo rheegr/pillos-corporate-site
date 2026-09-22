@@ -71,51 +71,51 @@ html {
   scroll-behavior: smooth;
 }
 
-html:lang(ko) {
+:lang(ko) {
   word-break: keep-all;
 }
 
 /* Korean version - single typeface (Malgun Gothic) across the entire UI.
    Overrides all body/heading/serif stacks so Korean reads uniformly. */
-html:lang(ko),
-html:lang(ko) body,
-html:lang(ko) h1,
-html:lang(ko) h2,
-html:lang(ko) h3,
-html:lang(ko) h4,
-html:lang(ko) h5,
-html:lang(ko) h6,
-html:lang(ko) p,
-html:lang(ko) span,
-html:lang(ko) a,
-html:lang(ko) li,
-html:lang(ko) blockquote,
-html:lang(ko) button,
-html:lang(ko) input,
-html:lang(ko) textarea,
-html:lang(ko) label,
-html:lang(ko) div,
-html:lang(ko) .font-serif-kr,
-html:lang(ko) .tx-display,
-html:lang(ko) .tx-h1,
-html:lang(ko) .tx-h2,
-html:lang(ko) .tx-h3 {
+:lang(ko),
+body:lang(ko),
+h1:lang(ko),
+h2:lang(ko),
+h3:lang(ko),
+h4:lang(ko),
+h5:lang(ko),
+h6:lang(ko),
+p:lang(ko),
+span:lang(ko),
+a:lang(ko),
+li:lang(ko),
+blockquote:lang(ko),
+button:lang(ko),
+input:lang(ko),
+textarea:lang(ko),
+label:lang(ko),
+div:lang(ko),
+.font-serif-kr:lang(ko),
+.tx-display:lang(ko),
+.tx-h1:lang(ko),
+.tx-h2:lang(ko),
+.tx-h3:lang(ko) {
   font-family: "Pretendard Variable", "Pretendard", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", system-ui, -apple-system, sans-serif;
   font-style: normal;
 }
 
-html:lang(ko) h1,
-html:lang(ko) h2,
-html:lang(ko) h3 {
+h1:lang(ko),
+h2:lang(ko),
+h3:lang(ko) {
   text-wrap: pretty;
   letter-spacing: -0.02em;
   font-weight: 700;
 }
 
 /* Drop the italic-serif accent in Korean - Malgun renders italic poorly */
-html:lang(ko) em,
-html:lang(ko) i,
-html:lang(ko) .italic {
+em:lang(ko),
+i:lang(ko),
+.italic:lang(ko) {
   font-style: normal;
 }
 
@@ -485,31 +485,31 @@ body::after {
 
 /* Hero title is English in both languages, so keep the EN display look (serif + display size)
    even on lang=ko, overriding the Korean font/size rules above. */
-html:lang(ko) .hero-title,
-html:lang(ko) .hero-title span {
+.hero-title:lang(ko),
+.hero-title span:lang(ko) {
   font-family: var(--font-serif) !important;
   font-weight: 400 !important; /* DM Serif is 400 only; cancel lang(ko) h1 bold and the Korean font on the inner span */
 }
-html:lang(ko) .hero-title {
+.hero-title:lang(ko) {
   font-size: var(--text-display) !important;
   line-height: var(--leading-display);
   letter-spacing: var(--tracking-display);
 }
 
 /* Korean reads better slightly larger and bold for section labels */
-html:lang(ko) .eyebrow {
+.eyebrow:lang(ko) {
   font-weight: 700;
   font-size: 1.0625rem;
   letter-spacing: 0.02em;
 }
-html:lang(ko) .page-eyebrow {
+.page-eyebrow:lang(ko) {
   font-weight: 700;
   font-size: 0.9375rem;
   letter-spacing: 0.04em;
 }
 /* Latin-only overlines ("HSE", "CONTACT") keep the English treatment in both
    locales so they do not resize or shift when switching language. */
-html:lang(ko) .page-eyebrow-latin,
+.page-eyebrow-latin:lang(ko),
 .page-eyebrow-latin {
   font-family: var(--font-inter), sans-serif !important;
   font-weight: 600 !important;
