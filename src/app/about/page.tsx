@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import { pageMetadata } from "@/data/seo";
 import Header from "@/components/Header";
 import PageHero from "@/components/PageHero";
 import About from "@/components/About";
@@ -8,11 +9,9 @@ import Footer from "@/components/Footer";
 import { pageHeroes } from "@/data/content";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
-export const metadata: Metadata = {
-  title: { absolute: "About Pillos | Korean Ocean Carrier Since 2009" },
-  description:
-    "Pillos is a Korean ocean carrier established in 2009, moving bulk, gas, and chemical cargo across global routes with more than 15 years of trusted operations.",
-};
+export function generateMetadata(): Promise<Metadata> {
+  return pageMetadata("about");
+}
 
 export default function AboutPage() {
   return (

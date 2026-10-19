@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import { pageMetadata } from "@/data/seo";
 import Header from "@/components/Header";
 import PageHero from "@/components/PageHero";
 import Contact from "@/components/Contact";
@@ -7,11 +8,9 @@ import Footer from "@/components/Footer";
 import { pageHeroes } from "@/data/content";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
-export const metadata: Metadata = {
-  title: { absolute: "Contact Pillos | Korean Ocean Carrier, Seoul" },
-  description:
-    "Contact Pillos, a Korean ocean carrier based in Jung-gu, Seoul. Enquiries from shippers, charterers, and partners are welcome — info@pillos.co.kr, +82-2-318-1703.",
-};
+export function generateMetadata(): Promise<Metadata> {
+  return pageMetadata("contact");
+}
 
 export default function ContactPage() {
   return (

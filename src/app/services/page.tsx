@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import { pageMetadata } from "@/data/seo";
 import Header from "@/components/Header";
 import PageHero from "@/components/PageHero";
 import ServicesTabs from "@/components/ServicesTabs";
@@ -6,11 +7,9 @@ import Footer from "@/components/Footer";
 import { pageHeroes } from "@/data/content";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
-export const metadata: Metadata = {
-  title: { absolute: "Bulk, Gas & Chemical Shipping Services | Pillos" },
-  description:
-    "Pillos shipping services — dry bulk carriers, gas (LPG) carriers, and chemical tankers carrying coal, ore, grain, olefins, and acids across Korea, Japan and global routes.",
-};
+export function generateMetadata(): Promise<Metadata> {
+  return pageMetadata("services");
+}
 
 export default function ServicesPage() {
   return (

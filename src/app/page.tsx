@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/data/seo";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TrustedBy from "@/components/TrustedBy";
@@ -7,9 +8,9 @@ import ServicesTeaser from "@/components/ServicesTeaser";
 import InquiryForm from "@/components/InquiryForm";
 import Footer from "@/components/Footer";
 
-export const metadata: Metadata = {
-  title: { absolute: "Pillos — Korean Ocean Carrier | Bulk, Gas & Chemical Shipping" },
-};
+export function generateMetadata(): Promise<Metadata> {
+  return pageMetadata("home");
+}
 
 export default function Home() {
   return (

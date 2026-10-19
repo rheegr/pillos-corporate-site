@@ -5,7 +5,7 @@ const base = siteUrl;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Fixed date: an always-"now" lastModified is ignored by crawlers.
-  const now = new Date("2026-09-07");
+  const now = new Date("2026-10-19");
   return [
     { url: `${base}/`, lastModified: now, changeFrequency: "monthly", priority: 1.0 },
     { url: `${base}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },

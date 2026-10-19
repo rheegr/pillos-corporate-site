@@ -77,9 +77,8 @@ export const metadata: Metadata = {
     "케미컬선",
     "해상운송",
   ],
-  alternates: {
-    canonical: "/",
-  },
+  // Canonical is set per page (src/data/seo.ts); a layout-level "/" would
+  // be inherited by every page and mark them all as copies of the homepage.
   openGraph: {
     title: ogTitle,
     description,

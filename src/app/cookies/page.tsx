@@ -1,9 +1,12 @@
 ﻿import type { Metadata } from "next";
+import { pageMetadata } from "@/data/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LegalPlaceholder from "@/components/LegalPlaceholder";
 
-export const metadata: Metadata = { title: "Cookies" };
+export function generateMetadata(): Promise<Metadata> {
+  return pageMetadata("cookies");
+}
 
 export default function CookiesPage() {
   return (
