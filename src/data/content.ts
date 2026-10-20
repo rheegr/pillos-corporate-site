@@ -585,6 +585,11 @@ export const footer = {
     en: "E-mail : info@pillos.co.kr",
     ko: "E-mail : info@pillos.co.kr",
   },
+  // Visible source for the CEO and affiliate entries in the layout JSON-LD.
+  groupLine: {
+    en: "CEO : In Ewon Rhee | Affiliate : Pillos Shipping Co., Ltd. (est. 2005)",
+    ko: "대표이사 : 이인원 | 계열사 : ㈜필로스해운 (2005년 설립)",
+  },
 };
 
 // ---------- Mission & Values (About page section) ----------

@@ -104,11 +104,15 @@ export async function pageMetadata(key: PageKey): Promise<Metadata> {
   const page = pages[key];
   const { title, description } = page[lang];
   const ogTitle = key === "home" ? homeOgTitle[lang] : title;
-  const url = page.path === "/" ? siteUrl : `${siteUrl}${page.path}`;
+  const langPath = (l: string) => (page.path === "/" ? `/${l}` : `/${l}${page.path}`);
+  const url = `${siteUrl}${langPath(lang)}`;
   return {
     title: { absolute: title },
     description,
-    alternates: { canonical: page.path },
+    alternates: {
+      canonical: langPath(lang),
+      languages: { ko: langPath("ko"), en: langPath("en"), "x-default": page.path },
+    },
     openGraph: {
       title: ogTitle,
       description,

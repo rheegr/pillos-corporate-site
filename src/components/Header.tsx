@@ -10,7 +10,7 @@ import LanguageToggle from "./LanguageToggle";
 
 export default function Header() {
   const { t } = useLanguage();
-  const pathname = usePathname();
+  const pathname = usePathname().replace(/^\/(ko|en)(?=\/|$)/, "") || "/";
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 

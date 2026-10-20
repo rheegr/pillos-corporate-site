@@ -122,9 +122,10 @@ const orgSchema = {
   "@type": "Organization",
   name: "Pillos Co., Ltd.",
   legalName: "Pillos Co., Ltd.",
-  alternateName: ["㈜필로스", "주식회사 필로스", "필로스", "Pillos", "Pillos Shipping"],
+  "@id": `${siteUrl}/#organization`,
+  alternateName: ["㈜필로스", "주식회사 필로스", "필로스", "Pillos"],
   disambiguatingDescription:
-    "Pillos Co., Ltd. (㈜필로스) is the Korean ocean carrier (bulk, gas and chemical shipping) headquartered in Seoul. It is a different legal entity from Pillos Shipping Co., Ltd. (필로스해운), a separate affiliate company.",
+    "Pillos Co., Ltd. (㈜필로스) is the Korean ocean carrier (bulk, gas and chemical shipping) headquartered at 9 Chungmu-ro, Jung-gu, Seoul, led by CEO In Ewon Rhee (이인원). Its affiliate Pillos Shipping Co., Ltd. (㈜필로스해운, est. 2005) shares the same CEO and office; pillos.co.kr is the official website of both.",
   url: siteUrl,
   logo: `${siteUrl}/pillos-logo.png`,
   image: `${siteUrl}/og-image.png`,
@@ -162,8 +163,33 @@ const orgSchema = {
     "Coal, iron ore and grain transport",
   ],
   sameAs: ["https://www.linkedin.com/company/pillos"],
+  employee: { "@id": `${siteUrl}/#ceo` },
   naics: "483111",
   areaServed: ["KR", "JP", "CN", "AU", "Southeast Asia", "Global"],
+};
+
+// Same CEO and office as Pillos; searches for "필로스해운" should resolve here.
+const affiliateSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${siteUrl}/#pillos-shipping`,
+  name: "Pillos Shipping Co., Ltd.",
+  alternateName: ["㈜필로스해운", "주식회사 필로스해운", "필로스해운", "필로스 해운", "Pillos Shipping"],
+  url: siteUrl,
+  foundingDate: "2005",
+  address: orgSchema.address,
+  employee: { "@id": `${siteUrl}/#ceo` },
+};
+
+const ceoSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${siteUrl}/#ceo`,
+  name: "In Ewon Rhee",
+  alternateName: "이인원",
+  jobTitle: "CEO",
+  worksFor: [{ "@id": `${siteUrl}/#organization` }, { "@id": `${siteUrl}/#pillos-shipping` }],
+  url: `${siteUrl}/about`,
 };
 
 const websiteSchema = {
@@ -190,7 +216,7 @@ export default async function RootLayout({
         {/* Organization structured data for rich search results */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify([orgSchema, websiteSchema]) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify([orgSchema, affiliateSchema, ceoSchema, websiteSchema]) }}
         />
         {/* Pretendard - Korean web-optimized variable font (replaces Malgun on lang=ko) */}
         <link

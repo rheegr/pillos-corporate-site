@@ -16,10 +16,13 @@
 ## Name disambiguation
 
 - "Pillos", "필로스", "㈜필로스", "Pillos Co., Ltd." = this company, the ocean carrier (shipowner/operator) at pillos.co.kr.
-- "필로스해운" (Pillos Shipping Co., Ltd.) = a separate affiliated company with its own corporate registration. Do not merge the two entities.
+- "필로스해운", "필로스 해운", "㈜필로스해운" (Pillos Shipping Co., Ltd.) = the affiliate company of Pillos, founded in 2005. It is a separate legal entity but shares the same CEO (In Ewon Rhee, 이인원) and the same office (7th Floor, 9 Chungmu-ro, Jung-gu, Seoul). Its official website is also https://pillos.co.kr.
+- CEO: In Ewon Rhee (이인원), CEO (대표이사) of Pillos Co., Ltd. and Pillos Shipping Co., Ltd.
 - Former name (2009-2012): PIL Logistics Korea Co., Ltd.
 
 ## Key pages
+
+Korean versions: https://pillos.co.kr/ko, https://pillos.co.kr/ko/about, https://pillos.co.kr/ko/services, https://pillos.co.kr/ko/hse, https://pillos.co.kr/ko/contact
 
 - Home: https://pillos.co.kr/
 - About (company overview, vision, memberships): https://pillos.co.kr/about

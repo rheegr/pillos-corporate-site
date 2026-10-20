@@ -1,19 +1,32 @@
 import type { MetadataRoute } from "next";
 import { siteUrl } from "@/data/site";
 
-const base = siteUrl;
+// Each page is listed under its fixed-language addresses (/ko/..., /en/...)
+// with hreflang pairs, so crawlers index the Korean render as well as the
+// English one regardless of where they crawl from (see src/proxy.ts).
+const pages: { path: string; freq: "monthly" | "yearly"; priority: number }[] = [
+  { path: "", freq: "monthly", priority: 1.0 },
+  { path: "/about", freq: "monthly", priority: 0.8 },
+  { path: "/services", freq: "monthly", priority: 0.8 },
+  { path: "/hse", freq: "monthly", priority: 0.6 },
+  { path: "/contact", freq: "monthly", priority: 0.7 },
+  { path: "/privacy", freq: "yearly", priority: 0.2 },
+  { path: "/terms", freq: "yearly", priority: 0.2 },
+  { path: "/cookies", freq: "yearly", priority: 0.2 },
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Fixed date: an always-"now" lastModified is ignored by crawlers.
-  const now = new Date("2026-10-19");
-  return [
-    { url: `${base}/`, lastModified: now, changeFrequency: "monthly", priority: 1.0 },
-    { url: `${base}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/services`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/hse`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${base}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${base}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
-    { url: `${base}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
-    { url: `${base}/cookies`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
-  ];
+  const lastModified = new Date("2026-10-20");
+  return pages.flatMap(({ path, freq, priority }) =>
+    (["ko", "en"] as const).map((lang) => ({
+      url: `${siteUrl}/${lang}${path}`,
+      lastModified,
+      changeFrequency: freq,
+      priority,
+      alternates: {
+        languages: { ko: `${siteUrl}/ko${path}`, en: `${siteUrl}/en${path}` },
+      },
+    })),
+  );
 }

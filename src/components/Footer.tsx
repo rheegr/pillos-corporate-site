@@ -22,6 +22,7 @@ export default function Footer() {
             <span className="mt-1">{t(footer.addressLine)}</span>
             <span>{t(footer.phoneLine)}</span>
             <span>{t(footer.emailLine)}</span>
+            <span>{t(footer.groupLine)}</span>
           </div>
         </div>
       </div>
