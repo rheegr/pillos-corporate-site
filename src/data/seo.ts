@@ -11,7 +11,7 @@ import { siteUrl } from "@/data/site";
 // search engines that /about, /services etc. were duplicates of the homepage.
 
 type Copy = { title: string; description: string };
-type PageKey = "home" | "about" | "services" | "hse" | "contact" | "privacy" | "terms" | "cookies";
+type PageKey = "home" | "about" | "services" | "hse" | "contact" | "faq" | "privacy" | "terms" | "cookies";
 
 const pages: Record<PageKey, { path: string; en: Copy; ko: Copy }> = {
   home: {
@@ -22,9 +22,9 @@ const pages: Record<PageKey, { path: string; en: Copy; ko: Copy }> = {
         "Pillos (필로스) is a Korean ocean carrier established in 2009, specializing in dry bulk, gas (LPG), and chemical tanker shipping across global trade routes. A trusted Korea-based ocean shipping company — trusted to deliver.",
     },
     ko: {
-      title: "필로스 | 벌크, 가스, 케미컬 전문 외항 해운선사",
+      title: "필로스(필로스 해운) | 건화물, 원자재 운송 외항 해운선사",
       description:
-        "필로스(Pillos)는 2009년 설립된 벌크, 가스(LPG), 케미컬 전문 해상운송선사입니다. 철강, 석유화학, 발전, 트레이딩 기업의 원자재와 에너지, 화학제품을 전 세계 주요 항로로 운송합니다.",
+        "필로스(㈜필로스, Pillos)는 2009년 설립된 외항 해운선사입니다. 석탄, 철광석, 곡물, 철강 같은 건화물과 원자재, LPG, 케미컬을 벌크선, 가스선, 케미컬선으로 운송합니다. 대표이사 이인원.",
     },
   },
   about: {
@@ -35,9 +35,9 @@ const pages: Record<PageKey, { path: string; en: Copy; ko: Copy }> = {
         "Pillos is a Korean ocean carrier established in 2009, moving bulk, gas, and chemical cargo across global routes with more than 15 years of trusted operations.",
     },
     ko: {
-      title: "회사소개 | 2009년 설립 외항 해운선사 필로스",
+      title: "회사소개 | 필로스 이인원 대표, 2009년 설립 해운선사",
       description:
-        "필로스는 2009년 설립 이후 국내외 화주, 협력사와 신뢰 관계를 이어 온 벌크, 가스, 케미컬 전문 해상운송선사입니다. 본사는 서울특별시 중구 충무로 9에 있습니다.",
+        "필로스는 이인원 대표이사가 이끄는 외항 해운선사로, 2009년 설립 이후 원자재와 에너지, 화학제품을 운송해 왔습니다. 계열사 ㈜필로스해운과 함께 서울 중구 충무로 9에 있습니다.",
     },
   },
   services: {
@@ -48,7 +48,7 @@ const pages: Record<PageKey, { path: string; en: Copy; ko: Copy }> = {
         "Pillos shipping services — dry bulk carriers, gas (LPG) carriers, and chemical tankers carrying coal, ore, grain, olefins, and acids across Korea, Japan and global routes.",
     },
     ko: {
-      title: "사업영역 | 벌크, 가스(LPG), 케미컬 해상운송 | 필로스",
+      title: "사업영역 | 건화물, 원자재 벌크 운송, LPG, 케미컬 | 필로스",
       description:
         "필로스는 석탄, 철광석, 곡물, 철강을 싣는 벌크 운송, LPG와 올레핀을 싣는 가스 운송, 벤젠, 베이스오일, 염산을 싣는 케미컬 운송을 한국, 일본, 중국과 글로벌 항로에서 수행합니다.",
     },
@@ -74,9 +74,22 @@ const pages: Record<PageKey, { path: string; en: Copy; ko: Copy }> = {
         "Contact Pillos, a Korean ocean carrier based in Jung-gu, Seoul. Enquiries from shippers, charterers, and partners are welcome — info@pillos.co.kr, +82-2-318-1703.",
     },
     ko: {
-      title: "문의하기 | 서울 중구 외항 해운선사 필로스",
+      title: "해상운송, 용선 문의 | 필로스 해운선사 (서울 중구)",
       description:
-        "화주, 용선주, 협력사의 운송 문의를 받습니다. 이메일 info@pillos.co.kr, 전화 02-318-1703, 주소 서울특별시 중구 충무로 9, 7층.",
+        "건화물, 원자재, 가스, 케미컬 해상운송과 용선 문의를 받습니다. 이메일 info@pillos.co.kr, 전화 02-318-1703, 주소 서울특별시 중구 충무로 9, 7층.",
+    },
+  },
+  faq: {
+    path: "/faq",
+    en: {
+      title: "Pillos FAQ | CEO, Cargo, Fleet and Routes of a Korean Ocean Carrier",
+      description:
+        "Answers about Pillos: a Korean ocean carrier founded in 2009 and led by CEO In Ewon Rhee, carrying dry bulk, raw materials, LPG and chemicals, and its affiliate Pillos Shipping (필로스해운).",
+    },
+    ko: {
+      title: "필로스 자주 묻는 질문 | 필로스 해운, 이인원 대표, 건화물 운송",
+      description:
+        "필로스는 어떤 회사인지, 대표이사 이인원, 필로스해운과의 관계, 건화물과 원자재 운송 화물, 선형, 항로, 해상운송 문의 방법을 정리했습니다.",
     },
   },
   privacy: {

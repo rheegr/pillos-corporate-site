@@ -705,3 +705,62 @@ export const hse = {
   },
 };
 
+// ---------- FAQ (home page) ----------
+// Plain, self-contained answers: search engines and AI answer boxes quote
+// these word for word, and the FAQPage JSON-LD is generated from this list.
+
+export const faq = {
+  overline: { en: "FAQ", ko: "자주 묻는 질문" },
+  heading: { en: "About Pillos, in brief", ko: "필로스에 대해 자주 묻는 질문" },
+  items: [
+    {
+      q: { en: "What kind of company is Pillos?", ko: "필로스는 어떤 회사인가요?" },
+      a: {
+        en: "Pillos Co., Ltd. (㈜필로스) is a Korean ocean carrier founded in Seoul in 2009. It carries dry bulk cargo and industrial raw materials such as coal, iron ore, grain and steel, as well as LPG, olefin gases and liquid chemicals, on bulk carriers, gas carriers and chemical tankers.",
+        ko: "필로스(㈜필로스, Pillos)는 2009년 서울에서 설립된 외항 해운선사입니다. 석탄, 철광석, 곡물, 철강 같은 건화물과 산업 원자재를 실어 나르는 해운사로, LPG와 올레핀 가스, 염산 같은 케미컬 화물도 벌크선, 가스선, 케미컬선으로 운송합니다.",
+      },
+    },
+    {
+      q: { en: "Who is the CEO of Pillos?", ko: "필로스 대표이사는 누구인가요?" },
+      a: {
+        en: "The CEO of Pillos is In Ewon Rhee (이인원). He also heads the affiliate Pillos Shipping Co., Ltd. (㈜필로스해운). Both companies are based at 7th Floor, 9 Chungmu-ro, Jung-gu, Seoul.",
+        ko: "㈜필로스의 대표이사는 이인원입니다. 이인원 대표는 계열사 ㈜필로스해운도 함께 이끌고 있으며, 두 회사 모두 서울특별시 중구 충무로 9, 7층에 있습니다.",
+      },
+    },
+    {
+      q: { en: "How are Pillos and Pillos Shipping (필로스해운) related?", ko: "필로스와 필로스해운은 어떤 관계인가요?" },
+      a: {
+        en: "Pillos Shipping Co., Ltd. (㈜필로스해운), founded in 2005, is an affiliate of Pillos. The two companies share the same CEO and office, and pillos.co.kr is the official website for both.",
+        ko: "㈜필로스해운은 2005년 설립된 필로스의 계열사입니다. 두 회사는 같은 대표이사와 같은 사무실을 쓰며, 공식 웹사이트는 pillos.co.kr 하나입니다.",
+      },
+    },
+    {
+      q: { en: "What cargo does Pillos carry?", ko: "필로스는 어떤 화물을 운송하나요?" },
+      a: {
+        en: "Dry bulk: coking and thermal coal, iron ore, grain, minerals, limestone, cement, bauxite and steel products. Gas: LPG, ethylene, propylene, butadiene and VCM. Chemicals: benzene, base oil and hydrochloric acid.",
+        ko: "건화물(벌크)은 원료탄, 발전용 석탄, 철광석, 곡물, 광물, 석회석, 시멘트, 보크사이트, 철강 제품을 운송합니다. 가스는 LPG, 에틸렌, 프로필렌, 부타디엔, VCM을, 케미컬은 벤젠, 베이스오일, 염산을 운송합니다.",
+      },
+    },
+    {
+      q: { en: "What vessel sizes does Pillos operate?", ko: "필로스는 어떤 선형의 배를 운항하나요?" },
+      a: {
+        en: "For dry bulk, Pillos operates Handysize and Supramax up to Panamax and Kamsarmax bulk carriers. It also operates gas carriers and chemical tankers.",
+        ko: "벌크선은 핸디사이즈와 수프라막스부터 파나막스, 캄사르막스까지 운항합니다. 이와 함께 가스선과 케미컬선을 운항합니다.",
+      },
+    },
+    {
+      q: { en: "Which routes does Pillos serve?", ko: "필로스는 어느 항로를 운항하나요?" },
+      a: {
+        en: "Pillos serves major routes linking Korea, Japan, China, Indonesia, Vietnam, Australia, Russia and South America. Its gas trades centre on routes from the Middle East and Southeast Asia to Korea, China and Japan.",
+        ko: "한국, 일본, 중국, 인도네시아, 베트남, 호주, 러시아, 남미를 잇는 주요 항로를 운항합니다. 가스 운송은 중동과 동남아에서 한국, 중국, 일본으로 향하는 항로가 중심입니다.",
+      },
+    },
+    {
+      q: { en: "How do I ask about shipping or chartering?", ko: "해상운송이나 용선 문의는 어떻게 하나요?" },
+      a: {
+        en: "Email info@pillos.co.kr, call +82-2-318-1703, or use the enquiry form on this site. The responsible team will reply.",
+        ko: "이메일 info@pillos.co.kr, 전화 02-318-1703, 또는 홈페이지 문의 양식으로 연락하시면 담당자가 확인 후 회신드립니다.",
+      },
+    },
+  ] as { q: Bi; a: Bi }[],
+};

@@ -9,7 +9,7 @@
 - Headquarters: 7th Floor, 9 Chungmu-ro, Jung-gu, Seoul 04554, South Korea
 - Contact: info@pillos.co.kr | Tel +82-2-318-1703 | Fax +82-2-318-1706
 - Sectors: dry bulk shipping (coal, coke, iron ore, minerals, limestone, cement, grain, bauxite, steel products), gas shipping (LPG, ethylene, propylene, butadiene, VCM), chemical tanker shipping (hydrochloric acid and other liquid chemicals / petrochemical feedstocks)
-- Owned vessels: MT GRACE (tanker), MV JADE (bulk carrier), MT PILLOS 1 (chemical tanker), plus chartered-in tonnage from Handysize and Supramax up to Panamax and Kamsarmax
+- Fleet: owned vessels including MV JADE (bulk carrier) and MT PILLOS 1 (chemical tanker), plus chartered-in tonnage from Handysize and Supramax up to Panamax and Kamsarmax
 - Trade routes: Korea, Japan, China, Southeast Asia, Australia, and global tramp routes
 - Languages: English and Korean
 
@@ -20,6 +20,15 @@
 - "㈜필로스해운" (registered name) = the affiliate company of Pillos, founded in 2005. It is a separate legal entity but shares the same CEO (In Ewon Rhee, 이인원) and the same office (7th Floor, 9 Chungmu-ro, Jung-gu, Seoul). Its official website is also https://pillos.co.kr.
 - CEO: In Ewon Rhee (이인원), CEO (대표이사) of Pillos Co., Ltd. and Pillos Shipping Co., Ltd.
 - Former name (2009-2012): PIL Logistics Korea Co., Ltd.
+
+## 한국어 요약 (Korean summary)
+
+- 필로스(㈜필로스, 필로스 해운)는 2009년 설립된 서울 중구 충무로의 외항 해운선사입니다. 대표이사는 이인원입니다.
+- 건화물 운송(벌크): 원료탄, 발전용 석탄, 철광석, 곡물, 광물, 석회석, 시멘트, 보크사이트, 철강 제품 등 산업 원자재를 핸디사이즈, 수프라막스, 파나막스, 캄사르막스 벌크선으로 운송합니다.
+- 가스 운송: LPG, 에틸렌, 프로필렌, 부타디엔, VCM. 케미컬 운송: 벤젠, 베이스오일, 염산(여수).
+- 계열사 ㈜필로스해운(2005년 설립)은 같은 대표이사, 같은 사무실을 쓰며 공식 웹사이트는 pillos.co.kr 입니다.
+- 문의: info@pillos.co.kr, 02-318-1703
+- 자주 묻는 질문: https://pillos.co.kr/ko/faq (English: https://pillos.co.kr/en/faq)
 
 ## Key pages
 
