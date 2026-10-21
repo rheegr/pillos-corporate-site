@@ -106,6 +106,10 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  // Google Search Console ownership (property https://pillos.co.kr/, owner rheegr@gmail.com)
+  verification: {
+    google: "3oeueV7R_a_0OKRYUAOt4HS6rojjulJZeXOdp9WDymI",
+  },
 };
 
 export const viewport: Viewport = {
@@ -123,9 +127,9 @@ const orgSchema = {
   name: "Pillos Co., Ltd.",
   legalName: "Pillos Co., Ltd.",
   "@id": `${siteUrl}/#organization`,
-  alternateName: ["㈜필로스", "주식회사 필로스", "필로스", "Pillos"],
+  alternateName: ["㈜필로스", "주식회사 필로스", "필로스", "필로스 해운", "Pillos", "Pillos Shipping"],
   disambiguatingDescription:
-    "Pillos Co., Ltd. (㈜필로스) is the Korean ocean carrier (bulk, gas and chemical shipping) headquartered at 9 Chungmu-ro, Jung-gu, Seoul, led by CEO In Ewon Rhee (이인원). Its affiliate Pillos Shipping Co., Ltd. (㈜필로스해운, est. 2005) shares the same CEO and office; pillos.co.kr is the official website of both.",
+    "Pillos Co., Ltd. (㈜필로스) is the Korean shipping company (필로스 해운): an ocean carrier in bulk, gas and chemical shipping, headquartered at 9 Chungmu-ro, Jung-gu, Seoul, led by CEO In Ewon Rhee (이인원). Its affiliate ㈜필로스해운 (est. 2005) shares the same CEO and office. pillos.co.kr is the official website of both.",
   url: siteUrl,
   logo: `${siteUrl}/pillos-logo.png`,
   image: `${siteUrl}/og-image.png`,
@@ -174,7 +178,7 @@ const affiliateSchema = {
   "@type": "Organization",
   "@id": `${siteUrl}/#pillos-shipping`,
   name: "Pillos Shipping Co., Ltd.",
-  alternateName: ["㈜필로스해운", "주식회사 필로스해운", "필로스해운", "필로스 해운", "Pillos Shipping"],
+  alternateName: ["㈜필로스해운", "주식회사 필로스해운", "필로스해운"],
   url: siteUrl,
   foundingDate: "2005",
   address: orgSchema.address,
