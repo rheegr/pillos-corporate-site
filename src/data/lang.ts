@@ -1,9 +1,11 @@
 // Shared between src/proxy.ts (the request proxy), the root layout (server)
 // and the language context (client).
 //
-// The URL prefix is the language. A `pillos-lang` cookie used to override
-// unprefixed pages; it is intentionally not read anymore, so a saved choice
-// cannot show English HTML at a Korean canonical URL (or the reverse).
+// A /ko or /en prefix is the language of that URL, for every visitor.
+// Unprefixed paths are not pages: src/proxy.ts 307s them with
+// x-vercel-ip-country (KR → /ko, otherwise /en). The old pillos-lang cookie
+// is not read, so a saved choice cannot send one Korean IP to /en and
+// another to /ko.
 
 export type Lang = "en" | "ko";
 

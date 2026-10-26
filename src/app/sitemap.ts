@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
 import { siteUrl } from "@/data/site";
 
-// Each page is listed under its fixed-language addresses (/ko/..., /en/...)
-// with hreflang pairs, so crawlers index the Korean render as well as the
-// English one regardless of where they crawl from (see src/proxy.ts).
+// Only the fixed-language addresses (/ko/..., /en/...) are listed. Unprefixed
+// paths 307 by country and are not sitemap URLs. x-default is the English
+// canonical (see src/data/seo.ts), which is also the non-KR default.
 const pages: { path: string; freq: "monthly" | "yearly"; priority: number }[] = [
   { path: "", freq: "monthly", priority: 1.0 },
   { path: "/about", freq: "monthly", priority: 0.8 },

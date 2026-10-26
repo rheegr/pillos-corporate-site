@@ -1,17 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Trailing slashes are normalized in src/proxy.ts so an unprefixed
-  // `/about/` can 308 straight to `/ko/about` instead of bouncing via `/about`.
+  // Trailing slashes are normalized in src/proxy.ts. Unprefixed paths are
+  // a country 307 there (not a fixed hop), so this file does not redirect them.
   skipTrailingSlashRedirect: true,
   async redirects() {
     return [
       // The FAQ reference page (2026-10-21) surfaced in search results on its
       // own; its answers now live in llms.txt and every FAQ address goes home.
-      // Legacy addresses land on a canonical locale URL in one hop.
-      // /ko/faq and /en/faq stay on their own locale home. Unprefixed
-      // pages are not destinations: src/proxy.ts 308s those to /ko.
-      { source: "/faq", destination: "/ko", permanent: true },
+      // /ko/faq and /en/faq stay on their own locale home. Unprefixed /faq is
+      // a country 307 in src/proxy.ts (next.config runs first, so it must not
+      // claim /faq here). Old .htm/.html addresses were the Korean site.
       { source: "/ko/faq", destination: "/ko", permanent: true },
       { source: "/en/faq", destination: "/en", permanent: true },
       { source: "/index.html", destination: "/ko", permanent: true },
