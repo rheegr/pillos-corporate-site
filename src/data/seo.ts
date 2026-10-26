@@ -107,8 +107,11 @@ export async function pageMetadata(key: PageKey): Promise<Metadata> {
     description,
     alternates: {
       canonical: langPath(lang),
-      // x-default is the English canonical URL (a 200, self-canonical page).
-      // Unprefixed paths 308 to /ko, so they must not be hreflang targets.
+      // x-default stays the English canonical (200, self-canonical), not the
+      // unprefixed URL. `/` and `/about` 307 by country, and a redirecting
+      // hreflang target is often ignored. English is also the non-KR default,
+      // which is the international version x-default should name. ko/en
+      // canonicals stay on their own /ko and /en URLs.
       languages: { ko: langPath("ko"), en: langPath("en"), "x-default": langPath("en") },
     },
     openGraph: {

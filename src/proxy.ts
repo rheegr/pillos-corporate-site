@@ -1,44 +1,70 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-import { LANG_HEADER } from "@/data/lang";
+import { LANG_HEADER, type Lang } from "@/data/lang";
 
 /**
- * Permanent redirect that does not inherit the request's trailing slash.
- * NextURL copies that flag onto the Location, which turned /about/ into
- * /ko/about/ and then looped.
+ * Redirect without inheriting the request's trailing slash. NextURL copies
+ * that flag onto Location, which turned /about/ into /ko/about/ and looped.
+ * Geo redirects are 307 and vary by country so a shared cache cannot pin one
+ * visitor's target. Slash-normalization of /ko and /en is 308: the target
+ * does not depend on who is asking.
  */
-function redirect308(request: NextRequest, pathname: string) {
+function redirectTo(request: NextRequest, pathname: string, status: 307 | 308) {
   const url = new URL(request.url);
   url.pathname = pathname;
-  return NextResponse.redirect(url, 308);
+  const response = NextResponse.redirect(url, status);
+  if (status === 307) {
+    response.headers.set("Vary", "x-vercel-ip-country");
+  }
+  return response;
 }
 
 /**
- * /ko and /en are the only indexable addresses of each page. The prefix is
- * rewritten onto the shared page and pinned with a request header, so the
- * HTML language does not depend on Accept-Language, cookies, or IP country.
- * Anything without a prefix permanently redirects to the Korean canonical
- * URL. Googlebot (and every other client) therefore gets the same hop.
+ * Korean IPs use the Korean URLs. Everyone else, including an absent or
+ * unknown country (local dev, some crawlers), uses English. Accept-Language
+ * and cookies are not consulted: the same country header always gets the
+ * same target, for browsers and for Googlebot.
+ */
+function localeFromCountry(request: NextRequest): Lang {
+  const country = request.headers.get("x-vercel-ip-country");
+  return country?.trim().toUpperCase() === "KR" ? "ko" : "en";
+}
+
+function localized(locale: Lang, bare: string): string {
+  if (bare === "/" || bare === "") return `/${locale}`;
+  return `/${locale}${bare.startsWith("/") ? bare : `/${bare}`}`;
+}
+
+/**
+ * /ko and /en are rewritten onto the shared page and always return 200.
+ * They are not geo-redirected, so a US crawler can fetch /ko and a visitor
+ * can switch language with the header link. Unprefixed paths 307 to the
+ * locale selected above.
  */
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const noslash = pathname.replace(/\/+$/, "") || "/";
 
-  // FAQ homes are also declared in next.config.ts. Handle the slashed forms
-  // here so /en/faq/ does not stop at /en/faq first (trailing-slash redirects
-  // are disabled in next.config so this file owns them).
-  const faq = pathname.replace(/\/+$/, "") || "/";
-  if (faq === "/faq" || faq === "/ko/faq" || faq === "/en/faq") {
-    return redirect308(request, faq === "/en/faq" ? "/en" : "/ko");
+  // /ko/faq and /en/faq (with or without a trailing slash) stay on that
+  // locale's home. next.config.ts declares the slash-less forms too.
+  if (noslash === "/ko/faq" || noslash === "/en/faq") {
+    return redirectTo(request, noslash === "/en/faq" ? "/en" : "/ko", 308);
   }
 
-  // One hop to a slash-less canonical. Prefixed slugs keep their locale;
-  // unprefixed slugs go straight to /ko so /about/ does not bounce via /about.
+  // Retired /faq address: same destination as the locale FAQ redirects
+  // (the locale home), chosen by country instead of always Korean.
+  if (noslash === "/faq") {
+    return redirectTo(request, `/${localeFromCountry(request)}`, 307);
+  }
+
   if (pathname.length > 1 && pathname.endsWith("/")) {
     const stripped = pathname.slice(0, -1);
+    // /ko/ and /en/about/ normalize for everyone. Not a geo decision.
     if (stripped === "/ko" || stripped === "/en" || /^\/(ko|en)\//.test(stripped)) {
-      return redirect308(request, stripped);
+      return redirectTo(request, stripped, 308);
     }
-    return redirect308(request, stripped === "/" ? "/ko" : `/ko${stripped}`);
+    // /about/ → /ko/about or /en/about in one hop, not via /about.
+    return redirectTo(request, localized(localeFromCountry(request), stripped), 307);
   }
 
   const prefixed = pathname.match(/^\/(ko|en)(\/.*)?$/);
@@ -51,7 +77,7 @@ export function proxy(request: NextRequest) {
     return NextResponse.rewrite(url, { request: { headers } });
   }
 
-  return redirect308(request, pathname === "/" ? "/ko" : `/ko${pathname}`);
+  return redirectTo(request, localized(localeFromCountry(request), pathname), 307);
 }
 
 export const config = {
