@@ -106,9 +106,13 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  // Google Search Console ownership (property https://pillos.co.kr/, owner rheegr@gmail.com)
+  // Search ownership for https://pillos.co.kr/ (Google Search Console, owner rheegr@gmail.com;
+  // Naver Search Advisor).
   verification: {
     google: "3oeueV7R_a_0OKRYUAOt4HS6rojjulJZeXOdp9WDymI",
+    other: {
+      "naver-site-verification": "7c95dcda12f13936c4a12030189570b1c72d1077",
+    },
   },
 };
 
