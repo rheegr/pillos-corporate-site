@@ -17,7 +17,7 @@ const pages: Record<PageKey, { path: string; en: Copy; ko: Copy }> = {
   home: {
     path: "/",
     en: {
-      title: "Pillos Co., Ltd. (Pillos Shipping) | Bulk, Gas & Chemical - Trusted to Deliver",
+      title: "Pillos | Bulk, Gas & Chemical - Trusted to Deliver",
       description:
         "Pillos Co., Ltd. (Pillos Shipping, 필로스) is a Korean ocean carrier established in 2009, specializing in dry bulk, gas (LPG), and chemical tanker shipping across global trade routes. A trusted Korea-based ocean shipping company — trusted to deliver.",
     },

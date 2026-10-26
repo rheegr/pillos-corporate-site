@@ -47,7 +47,7 @@ export default function Header() {
   } as const;
 
   const isHome = pathname === "/";
-  const logoAlt = lang === "ko" ? "필로스(Pillos)" : "Pillos Co., Ltd.";
+  const logoAlt = lang === "ko" ? "필로스(Pillos)" : "Pillos";
   const LogoWrap = isHome ? "h1" : "span";
 
   return (
