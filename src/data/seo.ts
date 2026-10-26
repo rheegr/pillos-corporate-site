@@ -17,12 +17,12 @@ const pages: Record<PageKey, { path: string; en: Copy; ko: Copy }> = {
   home: {
     path: "/",
     en: {
-      title: "Pillos (Pillos Shipping) | Korean Ocean Carrier, Bulk, Gas & Chemical",
+      title: "Pillos | Bulk, Gas & Chemical - Trusted to Deliver",
       description:
         "Pillos Co., Ltd. (Pillos Shipping, 필로스) is a Korean ocean carrier established in 2009, specializing in dry bulk, gas (LPG), and chemical tanker shipping across global trade routes. A trusted Korea-based ocean shipping company — trusted to deliver.",
     },
     ko: {
-      title: "필로스(필로스 해운) | 건화물, 원자재 운송 외항 해운선사",
+      title: "필로스(Pillos) | 벌크, 가스, 케미컬 해운 - Trusted to Deliver",
       description:
         "필로스(㈜필로스, Pillos)는 2009년 설립된 외항 해운선사입니다. 석탄, 철광석, 곡물, 철강 같은 건화물과 원자재, LPG, 케미컬을 벌크선, 가스선, 케미컬선으로 운송합니다. 대표이사 이인원.",
     },
@@ -96,14 +96,10 @@ const pages: Record<PageKey, { path: string; en: Copy; ko: Copy }> = {
   },
 };
 
-// Share-card title stays short and branded on the homepage.
-const homeOgTitle = { en: "Pillos - Trusted to Deliver", ko: "필로스 - Trusted to Deliver" };
-
 export async function pageMetadata(key: PageKey): Promise<Metadata> {
   const lang = (await headers()).get(LANG_HEADER) === "ko" ? "ko" : "en";
   const page = pages[key];
   const { title, description } = page[lang];
-  const ogTitle = key === "home" ? homeOgTitle[lang] : title;
   const langPath = (l: string) => (page.path === "/" ? `/${l}` : `/${l}${page.path}`);
   const url = `${siteUrl}${langPath(lang)}`;
   return {
@@ -114,7 +110,7 @@ export async function pageMetadata(key: PageKey): Promise<Metadata> {
       languages: { ko: langPath("ko"), en: langPath("en"), "x-default": page.path },
     },
     openGraph: {
-      title: ogTitle,
+      title,
       description,
       url,
       siteName: lang === "ko" ? "필로스" : "Pillos",
@@ -125,7 +121,7 @@ export async function pageMetadata(key: PageKey): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: ogTitle,
+      title,
       description,
       images: ["/og-image.png"],
     },

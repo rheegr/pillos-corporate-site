@@ -9,7 +9,7 @@ import MobileMenu from "./MobileMenu";
 import LanguageToggle from "./LanguageToggle";
 
 export default function Header() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const pathname = usePathname().replace(/^\/(ko|en)(?=\/|$)/, "") || "/";
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -46,6 +46,10 @@ export default function Header() {
     fontFamily: "var(--font-inter), 'Pretendard Variable', var(--font-noto-sans-kr), sans-serif",
   } as const;
 
+  const isHome = pathname === "/";
+  const logoAlt = lang === "ko" ? "필로스(Pillos)" : "Pillos";
+  const LogoWrap = isHome ? "h1" : "span";
+
   return (
     <>
       <header
@@ -55,12 +59,14 @@ export default function Header() {
       >
         <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-16 h-[var(--header-h)] flex items-center justify-between">
           <Link href="/" className="inline-flex items-center" aria-label="Pillos - home">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/pillos-wordmark-orange.svg"
-              alt="Pillos"
-              className="h-[19px] md:h-[25px] w-auto"
-            />
+            <LogoWrap className="site-logo-heading">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/pillos-wordmark-orange.svg"
+                alt={logoAlt}
+                className="h-[19px] md:h-[25px] w-auto"
+              />
+            </LogoWrap>
           </Link>
 
           <nav className="hidden md:flex items-center gap-9">

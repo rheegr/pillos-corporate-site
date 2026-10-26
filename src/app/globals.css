@@ -488,7 +488,7 @@ body::after {
 .hero-title:lang(ko),
 .hero-title span:lang(ko) {
   font-family: var(--font-serif) !important;
-  font-weight: 400 !important; /* DM Serif is 400 only; cancel lang(ko) h1 bold and the Korean font on the inner span */
+  font-weight: 400 !important; /* DM Serif is 400 only; cancel lang(ko) heading bold and the Korean font on the inner span */
 }
 .hero-title:lang(ko) {
   font-size: var(--text-display) !important;
@@ -525,6 +525,20 @@ body::after {
   letter-spacing: var(--tracking-eyebrow-quiet);
   text-transform: none;
   font-weight: 400;
+}
+
+/* Header wordmark. On the home page this wrapper is an h1; elsewhere a span.
+   Resets cancel the user-agent heading box and the :lang(ko) h1 rules so the
+   image sits in the same place as a bare img. */
+.site-logo-heading {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  line-height: 0;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
 }
 
 /* Headline tokens */
