@@ -3,9 +3,10 @@
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { hero } from "@/data/content";
+import { localeHref } from "@/data/lang";
 
 export default function Hero() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <section
@@ -50,7 +51,7 @@ export default function Hero() {
 
           <div className="mt-9 flex flex-wrap items-center gap-6">
             <Link
-              href="/about"
+              href={localeHref(lang, "/about")}
               className="inline-flex items-center gap-3 rounded-full bg-[#f9441d] px-7 py-3 text-[11px] font-semibold uppercase tracking-[var(--tracking-button)] text-[#f8f6f3] transition-[transform,background-color] duration-[var(--duration-base)] ease-[var(--ease-spring)] hover:bg-[#d2370f] active:scale-[0.98]"
             >
               {t(hero.primaryBtn)}

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
 import type { Bi } from "@/data/content";
+import { localeHref } from "@/data/lang";
 import Reveal from "./Reveal";
 
 type Props = {
@@ -12,7 +13,7 @@ type Props = {
 };
 
 export default function LegalPlaceholder({ overline, heading, body }: Props) {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   return (
     <section className="relative bg-[#f8f6f3] text-[#0e2a47] pt-[var(--header-h)]">
       <div className="mx-auto max-w-[1120px] px-6 sm:px-10 lg:px-16">
@@ -35,7 +36,7 @@ export default function LegalPlaceholder({ overline, heading, body }: Props) {
               </p>
             </Reveal>
             <Reveal delay={400}>
-              <Link href="/" className="btn-ghost mt-12">
+              <Link href={localeHref(lang, "/")} className="btn-ghost mt-12">
                 <span aria-hidden className="btn-arrow">←</span> Back to home
               </Link>
             </Reveal>

@@ -4,6 +4,8 @@ import { useLanguage, type Lang } from "@/contexts/LanguageContext";
 import type { Bi } from "@/data/content";
 
 type Props = {
+  /** Which page's reserved hero height to use (see .hero-* in globals.css). */
+  variant: "about" | "services" | "hse" | "contact";
   overline: Bi;
   heading: Bi;
   sub?: Bi;
@@ -18,17 +20,14 @@ type Props = {
   imagePosition?: string;
 };
 
-const LANGS: Lang[] = ["en", "ko"];
-
 /**
- * One language's copy block. Both locales are rendered into the same grid cell
- * (the inactive one invisible) so the hero band is always as tall as the taller
- * copy and never resizes when the visitor toggles KO / EN. Each copy carries its
- * own `lang` attribute so the :lang(ko) font rules apply per copy, not per page.
+ * The current locale only. The band's min-height (globals.css) matches the
+ * taller of the two languages, which used to be reserved by rendering both
+ * copies in one grid cell. `lang` is on this block so :lang(ko) font rules
+ * apply to the copy itself.
  */
 function HeroCopy({
   lang,
-  active,
   dark,
   overline,
   heading,
@@ -37,7 +36,6 @@ function HeroCopy({
   eyebrowClass,
 }: {
   lang: Lang;
-  active: boolean;
   dark: boolean;
   overline: Bi;
   heading: Bi;
@@ -53,11 +51,7 @@ function HeroCopy({
   const headingMt = dark ? "mt-6" : "mt-7";
 
   return (
-    <div
-      lang={lang}
-      aria-hidden={active ? undefined : true}
-      className={`col-start-1 row-start-1 flex flex-col justify-end ${active ? "" : "invisible pointer-events-none select-none"}`}
-    >
+    <div lang={lang} className="page-hero-copy flex flex-col justify-end">
       <div className={`${eyebrowClass} flex items-center gap-3 text-[#f9441d]`}>
         <span className="h-px w-8 bg-[#f9441d]" />
         <span>{pick(overline)}</span>
@@ -76,29 +70,25 @@ function HeroCopy({
   );
 }
 
-export default function PageHero({ overline, heading, sub, headingNote, latinOverline, image, imageAlt, imagePosition }: Props) {
+export default function PageHero({ variant, overline, heading, sub, headingNote, latinOverline, image, imageAlt, imagePosition }: Props) {
   const { lang } = useLanguage();
   const eyebrowClass = `page-eyebrow${latinOverline ? " page-eyebrow-latin" : ""}`;
-
-  const copies = (dark: boolean) =>
-    LANGS.map((l) => (
-      <HeroCopy
-        key={l}
-        lang={l}
-        active={l === lang}
-        dark={dark}
-        overline={overline}
-        heading={heading}
-        sub={sub}
-        headingNote={headingNote}
-        eyebrowClass={eyebrowClass}
-      />
-    ));
+  const copy = (
+    <HeroCopy
+      lang={lang}
+      dark={Boolean(image)}
+      overline={overline}
+      heading={heading}
+      sub={sub}
+      headingNote={headingNote}
+      eyebrowClass={eyebrowClass}
+    />
+  );
 
   // ---- Image variant: dark hero band with scrim + light text ----
   if (image) {
     return (
-      <section className="relative overflow-hidden bg-[#0e2a47] text-[#f8f6f3] pt-[var(--header-h)]">
+      <section className={`hero-${variant} relative overflow-hidden bg-[#0e2a47] text-[#f8f6f3] pt-[var(--header-h)]`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={image}
@@ -113,7 +103,7 @@ export default function PageHero({ overline, heading, sub, headingNote, latinOve
 
         <div className="relative z-10 mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-16">
           <div className="grid min-h-[44vh] lg:min-h-[48vh] pt-24 lg:pt-32 pb-14 lg:pb-20">
-            {copies(true)}
+            {copy}
           </div>
         </div>
       </section>
@@ -122,10 +112,10 @@ export default function PageHero({ overline, heading, sub, headingNote, latinOve
 
   // ---- Light fallback (no image) ----
   return (
-    <section className="relative bg-[#f8f6f3] text-[#0e2a47] pt-[var(--header-h)] overflow-hidden">
+    <section className={`hero-${variant} relative bg-[#f8f6f3] text-[#0e2a47] pt-[var(--header-h)] overflow-hidden`}>
       <div aria-hidden className="hero-ambient opacity-70" />
       <div className="relative mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-16">
-        <div className="grid pt-20 lg:pt-28 pb-14 lg:pb-20">{copies(false)}</div>
+        <div className="grid pt-20 lg:pt-28 pb-14 lg:pb-20">{copy}</div>
       </div>
     </section>
   );

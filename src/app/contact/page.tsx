@@ -18,6 +18,7 @@ export default function ContactPage() {
       <BreadcrumbJsonLd crumbs={[{ name: "Contact", path: "/contact" }]} />
       <Header />
       <PageHero
+        variant="contact"
         overline={pageHeroes.contact.overline}
         latinOverline
         heading={pageHeroes.contact.heading}

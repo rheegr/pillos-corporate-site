@@ -5,12 +5,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { nav } from "@/data/content";
+import { barePath, localeHref } from "@/data/lang";
 import MobileMenu from "./MobileMenu";
 import LanguageToggle from "./LanguageToggle";
 
 export default function Header() {
   const { t, lang } = useLanguage();
-  const pathname = usePathname().replace(/^\/(ko|en)(?=\/|$)/, "") || "/";
+  const pathname = barePath(usePathname() || "/");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -58,7 +59,7 @@ export default function Header() {
         }`}
       >
         <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-16 h-[var(--header-h)] flex items-center justify-between">
-          <Link href="/" className="inline-flex items-center" aria-label="Pillos - home">
+          <Link href={localeHref(lang, "/")} className="inline-flex items-center" aria-label="Pillos - home">
             <LogoWrap className="site-logo-heading">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -75,7 +76,7 @@ export default function Header() {
               return (
                 <Link
                   key={item.id}
-                  href={item.href}
+                  href={localeHref(lang, item.href)}
                   aria-current={active ? "page" : undefined}
                   className={`nav-link inline-block min-w-[72px] text-center ${active ? "is-active" : ""} text-[0.8rem] uppercase tracking-[var(--tracking-eyebrow-quiet)] ${
                     active ? navActive : navInactive

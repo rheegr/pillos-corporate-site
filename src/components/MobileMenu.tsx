@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { nav } from "@/data/content";
+import { localeHref } from "@/data/lang";
 import LanguageToggle from "./LanguageToggle";
 
 type Props = {
@@ -12,7 +13,7 @@ type Props = {
 };
 
 export default function MobileMenu({ open, onClose }: Props) {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   useEffect(() => {
     if (open) {
@@ -35,7 +36,7 @@ export default function MobileMenu({ open, onClose }: Props) {
       <div className="absolute inset-0 bg-white" />
       <div className="relative h-full flex flex-col px-6 pb-10">
         <div className="flex items-center justify-between h-[var(--header-h)]">
-          <Link href="/" onClick={onClose} className="inline-flex items-center" aria-label="Pillos - home">
+          <Link href={localeHref(lang, "/")} onClick={onClose} className="inline-flex items-center" aria-label="Pillos - home">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/pillos-wordmark-orange.svg" alt="Pillos" className="h-[19px] w-auto" />
           </Link>
@@ -55,7 +56,7 @@ export default function MobileMenu({ open, onClose }: Props) {
           {nav.map((item) => (
             <Link
               key={item.id}
-              href={item.href}
+              href={localeHref(lang, item.href)}
               onClick={onClose}
               className="font-serif font-bold text-2xl text-[#1a1a1a] py-3 border-b border-[#1a1a1a]/10"
             >

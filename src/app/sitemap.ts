@@ -25,7 +25,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: freq,
       priority,
       alternates: {
-        languages: { ko: `${siteUrl}/ko${path}`, en: `${siteUrl}/en${path}` },
+        languages: {
+          ko: `${siteUrl}/ko${path}`,
+          en: `${siteUrl}/en${path}`,
+          "x-default": `${siteUrl}/en${path}`,
+        },
       },
     })),
   );

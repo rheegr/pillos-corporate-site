@@ -17,6 +17,7 @@ export default function ServicesPage() {
       <BreadcrumbJsonLd crumbs={[{ name: "Services", path: "/services" }]} />
       <Header />
       <PageHero
+        variant="services"
         overline={pageHeroes.services.overline}
         heading={pageHeroes.services.heading}
         sub={pageHeroes.services.sub}
