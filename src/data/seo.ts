@@ -3,12 +3,12 @@ import { headers } from "next/headers";
 import { LANG_HEADER } from "@/data/lang";
 import { siteUrl } from "@/data/site";
 
-// Per-page <title>, description, canonical and share card, in the language the
-// page body is rendered in (src/proxy.ts decides it per request). Korean
-// visitors and Naver's crawler get a Korean body, so they must also get a
-// Korean title; a single English title over a Korean body splits the signal.
-// Every page carries its own canonical: inheriting the layout's "/" told
-// search engines that /about, /services etc. were duplicates of the homepage.
+// Per-page <title>, description, canonical and share card, in the language of
+// the URL prefix (src/proxy.ts). /ko pages get a Korean title over a Korean
+// body; /en pages get English. A single English title over a Korean body
+// would split the signal. Every page carries its own canonical: inheriting
+// the layout's "/" told search engines that /about, /services etc. were
+// duplicates of the homepage.
 
 type Copy = { title: string; description: string };
 type PageKey = "home" | "about" | "services" | "hse" | "contact" | "privacy" | "terms" | "cookies";
@@ -107,7 +107,9 @@ export async function pageMetadata(key: PageKey): Promise<Metadata> {
     description,
     alternates: {
       canonical: langPath(lang),
-      languages: { ko: langPath("ko"), en: langPath("en"), "x-default": page.path },
+      // x-default is the English canonical URL (a 200, self-canonical page).
+      // Unprefixed paths 308 to /ko, so they must not be hreflang targets.
+      languages: { ko: langPath("ko"), en: langPath("en"), "x-default": langPath("en") },
     },
     openGraph: {
       title,

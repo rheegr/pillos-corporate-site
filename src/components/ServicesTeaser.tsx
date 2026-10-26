@@ -3,10 +3,11 @@
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { servicesTeaser } from "@/data/content";
+import { localeHref } from "@/data/lang";
 import Reveal from "./Reveal";
 
 export default function ServicesTeaser() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <section className="relative bg-[#0e2a47] text-[#f8f6f3] py-24 lg:py-32">
@@ -21,7 +22,7 @@ export default function ServicesTeaser() {
             </Reveal>
           </div>
           <Reveal delay={200}>
-            <Link href="/services" className="btn-ghost on-dark">
+            <Link href={localeHref(lang, "/services")} className="btn-ghost on-dark">
               <span className="whitespace-pre-line">{t(servicesTeaser.viewAll)}</span> <span aria-hidden className="btn-arrow">→</span>
             </Link>
           </Reveal>
@@ -32,7 +33,7 @@ export default function ServicesTeaser() {
           {servicesTeaser.cards.map((c, i) => (
             <Reveal key={c.number} delay={i * 100} className="h-full">
               <Link
-                href={`/services#${c.anchor}`}
+                href={localeHref(lang, `/services#${c.anchor}`)}
                 className="service-card group flex h-full flex-col bg-[#f1ece3] hover:bg-[#e7ddcd] px-7 py-10 lg:px-9 lg:py-12 transition-colors duration-[var(--duration-base)] [transition-timing-function:var(--ease-spring)]"
               >
                 <span className="font-serif tabular text-[#f9441d] text-[26px] leading-none">

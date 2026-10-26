@@ -125,16 +125,18 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
+const organizationId = `${siteUrl}/#organization`;
+
 const orgSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Pillos Co., Ltd.",
+  "@id": organizationId,
+  name: "Pillos",
   legalName: "Pillos Co., Ltd.",
-  "@id": `${siteUrl}/#organization`,
   alternateName: ["㈜필로스", "주식회사 필로스", "필로스", "필로스 해운", "Pillos", "Pillos Shipping"],
   disambiguatingDescription:
     "Pillos Co., Ltd. (㈜필로스) is the Korean shipping company (필로스 해운): an ocean carrier in bulk, gas and chemical shipping, headquartered at 9 Chungmu-ro, Jung-gu, Seoul, led by CEO In Ewon Rhee (이인원). Its affiliate ㈜필로스해운 (est. 2005) shares the same CEO and office. pillos.co.kr is the official website of both.",
-  url: siteUrl,
+  url: `${siteUrl}/en`,
   logo: `${siteUrl}/pillos-logo.png`,
   image: `${siteUrl}/og-image.png`,
   description,
@@ -183,7 +185,7 @@ const affiliateSchema = {
   "@id": `${siteUrl}/#pillos-shipping`,
   name: "Pillos Shipping Co., Ltd.",
   alternateName: ["㈜필로스해운", "주식회사 필로스해운", "필로스해운"],
-  url: siteUrl,
+  url: `${siteUrl}/en`,
   foundingDate: "2005",
   address: orgSchema.address,
   employee: { "@id": `${siteUrl}/#ceo` },
@@ -197,23 +199,25 @@ const ceoSchema = {
   alternateName: "이인원",
   jobTitle: "CEO",
   worksFor: [{ "@id": `${siteUrl}/#organization` }, { "@id": `${siteUrl}/#pillos-shipping` }],
-  url: `${siteUrl}/about`,
+  url: `${siteUrl}/en/about`,
 };
 
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
   name: "Pillos",
   alternateName: "필로스",
-  url: siteUrl,
+  url: `${siteUrl}/en`,
   inLanguage: ["en", "ko"],
+  publisher: { "@id": organizationId },
 };
 
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  // Decided in src/proxy.ts (saved cookie, else IP country). Falls back to
-  // English when the proxy did not run (e.g. static export tooling).
+  // Pinned by the /ko or /en prefix in src/proxy.ts. Falls back to English
+  // when the proxy did not run (e.g. static export tooling).
   const initialLang: Lang = (await headers()).get(LANG_HEADER) === "ko" ? "ko" : "en";
   return (
     <html

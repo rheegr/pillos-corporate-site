@@ -1,8 +1,11 @@
 ﻿import Link from "next/link";
+import { headers } from "next/headers";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { LANG_HEADER, localeHref, type Lang } from "@/data/lang";
 
-export default function NotFound() {
+export default async function NotFound() {
+  const lang: Lang = (await headers()).get(LANG_HEADER) === "ko" ? "ko" : "en";
   return (
     <main className="relative">
       <Header />
@@ -29,11 +32,11 @@ export default function NotFound() {
                 요청하신 페이지를 찾을 수 없습니다. 항로를 잠시 잃었을 뿐입니다 - 다시 출발점으로 안내합니다.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-6">
-                <Link href="/" className="btn-primary">
+                <Link href={localeHref(lang, "/")} className="btn-primary">
                   Back to home
                   <span aria-hidden className="btn-icon">→</span>
                 </Link>
-                <Link href="/contact" className="btn-ghost">
+                <Link href={localeHref(lang, "/contact")} className="btn-ghost">
                   Get in touch <span aria-hidden className="btn-arrow">→</span>
                 </Link>
               </div>

@@ -720,3 +720,314 @@ body::after {
   left: 1rem;
   top: 1rem;
 }
+/* Page-hero copy slot.
+   The inactive locale used to be rendered in the same grid cell (visibility:hidden)
+   so the band stayed as tall as the taller language. Only the current locale is
+   in the HTML now. These min-heights are that stacked content height, sampled
+   every 20px, so justify-end keeps the headline in the same place.
+   Remeasure if the hero type scale or copy changes. */
+.hero-about .page-hero-copy { min-height: 478px; }
+.hero-services .page-hero-copy { min-height: 326px; }
+.hero-hse .page-hero-copy { min-height: 339px; }
+.hero-contact .page-hero-copy { min-height: 284px; }
+
+@media (min-width: 340px) {
+  .hero-about .page-hero-copy { min-height: 436px; }
+  .hero-services .page-hero-copy { min-height: 326px; }
+  .hero-hse .page-hero-copy { min-height: 310px; }
+  .hero-contact .page-hero-copy { min-height: 284px; }
+}
+
+@media (min-width: 360px) {
+  .hero-about .page-hero-copy { min-height: 365px; }
+  .hero-services .page-hero-copy { min-height: 326px; }
+  .hero-hse .page-hero-copy { min-height: 268px; }
+  .hero-contact .page-hero-copy { min-height: 284px; }
+}
+
+@media (min-width: 380px) {
+  .hero-about .page-hero-copy { min-height: 365px; }
+  .hero-services .page-hero-copy { min-height: 284px; }
+  .hero-hse .page-hero-copy { min-height: 268px; }
+  .hero-contact .page-hero-copy { min-height: 255px; }
+}
+
+@media (min-width: 440px) {
+  .hero-about .page-hero-copy { min-height: 365px; }
+  .hero-services .page-hero-copy { min-height: 284px; }
+  .hero-hse .page-hero-copy { min-height: 268px; }
+  .hero-contact .page-hero-copy { min-height: 226px; }
+}
+
+@media (min-width: 460px) {
+  .hero-about .page-hero-copy { min-height: 365px; }
+  .hero-services .page-hero-copy { min-height: 284px; }
+  .hero-hse .page-hero-copy { min-height: 239px; }
+  .hero-contact .page-hero-copy { min-height: 226px; }
+}
+
+@media (min-width: 480px) {
+  .hero-about .page-hero-copy { min-height: 323px; }
+  .hero-services .page-hero-copy { min-height: 242px; }
+  .hero-hse .page-hero-copy { min-height: 239px; }
+  .hero-contact .page-hero-copy { min-height: 226px; }
+}
+
+@media (min-width: 540px) {
+  .hero-about .page-hero-copy { min-height: 323px; }
+  .hero-services .page-hero-copy { min-height: 239px; }
+  .hero-hse .page-hero-copy { min-height: 239px; }
+  .hero-contact .page-hero-copy { min-height: 226px; }
+}
+
+@media (min-width: 600px) {
+  .hero-about .page-hero-copy { min-height: 281px; }
+  .hero-services .page-hero-copy { min-height: 239px; }
+  .hero-hse .page-hero-copy { min-height: 227px; }
+  .hero-contact .page-hero-copy { min-height: 226px; }
+}
+
+@media (min-width: 620px) {
+  .hero-about .page-hero-copy { min-height: 281px; }
+  .hero-services .page-hero-copy { min-height: 239px; }
+  .hero-hse .page-hero-copy { min-height: 227px; }
+  .hero-contact .page-hero-copy { min-height: 197px; }
+}
+
+@media (min-width: 640px) {
+  .hero-about .page-hero-copy { min-height: 281px; }
+  .hero-services .page-hero-copy { min-height: 239px; }
+  .hero-hse .page-hero-copy { min-height: 227px; }
+  .hero-contact .page-hero-copy { min-height: 226px; }
+}
+
+@media (min-width: 660px) {
+  .hero-about .page-hero-copy { min-height: 281px; }
+  .hero-services .page-hero-copy { min-height: 239px; }
+  .hero-hse .page-hero-copy { min-height: 227px; }
+  .hero-contact .page-hero-copy { min-height: 197px; }
+}
+
+@media (min-width: 700px) {
+  .hero-about .page-hero-copy { min-height: 281px; }
+  .hero-services .page-hero-copy { min-height: 213px; }
+  .hero-hse .page-hero-copy { min-height: 227px; }
+  .hero-contact .page-hero-copy { min-height: 197px; }
+}
+
+@media (min-width: 720px) {
+  .hero-about .page-hero-copy { min-height: 252px; }
+  .hero-services .page-hero-copy { min-height: 213px; }
+  .hero-hse .page-hero-copy { min-height: 227px; }
+  .hero-contact .page-hero-copy { min-height: 197px; }
+}
+
+@media (min-width: 820px) {
+  .hero-about .page-hero-copy { min-height: 213px; }
+  .hero-services .page-hero-copy { min-height: 213px; }
+  .hero-hse .page-hero-copy { min-height: 227px; }
+  .hero-contact .page-hero-copy { min-height: 197px; }
+}
+
+@media (min-width: 880px) {
+  .hero-about .page-hero-copy { min-height: 213px; }
+  .hero-services .page-hero-copy { min-height: 171px; }
+  .hero-hse .page-hero-copy { min-height: 227px; }
+  .hero-contact .page-hero-copy { min-height: 197px; }
+}
+
+@media (min-width: 900px) {
+  .hero-about .page-hero-copy { min-height: 214px; }
+  .hero-services .page-hero-copy { min-height: 172px; }
+  .hero-hse .page-hero-copy { min-height: 227px; }
+  .hero-contact .page-hero-copy { min-height: 198px; }
+}
+
+@media (min-width: 920px) {
+  .hero-about .page-hero-copy { min-height: 216px; }
+  .hero-services .page-hero-copy { min-height: 173px; }
+  .hero-hse .page-hero-copy { min-height: 228px; }
+  .hero-contact .page-hero-copy { min-height: 199px; }
+}
+
+@media (min-width: 940px) {
+  .hero-about .page-hero-copy { min-height: 218px; }
+  .hero-services .page-hero-copy { min-height: 174px; }
+  .hero-hse .page-hero-copy { min-height: 229px; }
+  .hero-contact .page-hero-copy { min-height: 200px; }
+}
+
+@media (min-width: 960px) {
+  .hero-about .page-hero-copy { min-height: 220px; }
+  .hero-services .page-hero-copy { min-height: 175px; }
+  .hero-hse .page-hero-copy { min-height: 230px; }
+  .hero-contact .page-hero-copy { min-height: 201px; }
+}
+
+@media (min-width: 980px) {
+  .hero-about .page-hero-copy { min-height: 222px; }
+  .hero-services .page-hero-copy { min-height: 176px; }
+  .hero-hse .page-hero-copy { min-height: 231px; }
+  .hero-contact .page-hero-copy { min-height: 202px; }
+}
+
+@media (min-width: 1000px) {
+  .hero-about .page-hero-copy { min-height: 224px; }
+  .hero-services .page-hero-copy { min-height: 177px; }
+  .hero-hse .page-hero-copy { min-height: 232px; }
+  .hero-contact .page-hero-copy { min-height: 203px; }
+}
+
+@media (min-width: 1020px) {
+  .hero-about .page-hero-copy { min-height: 226px; }
+  .hero-services .page-hero-copy { min-height: 178px; }
+  .hero-hse .page-hero-copy { min-height: 233px; }
+  .hero-contact .page-hero-copy { min-height: 203px; }
+}
+
+@media (min-width: 1024px) {
+  .hero-about .page-hero-copy { min-height: 226px; }
+  .hero-services .page-hero-copy { min-height: 226px; }
+  .hero-hse .page-hero-copy { min-height: 233px; }
+  .hero-contact .page-hero-copy { min-height: 204px; }
+}
+
+@media (min-width: 1040px) {
+  .hero-about .page-hero-copy { min-height: 228px; }
+  .hero-services .page-hero-copy { min-height: 228px; }
+  .hero-hse .page-hero-copy { min-height: 234px; }
+  .hero-contact .page-hero-copy { min-height: 204px; }
+}
+
+@media (min-width: 1060px) {
+  .hero-about .page-hero-copy { min-height: 230px; }
+  .hero-services .page-hero-copy { min-height: 230px; }
+  .hero-hse .page-hero-copy { min-height: 235px; }
+  .hero-contact .page-hero-copy { min-height: 205px; }
+}
+
+@media (min-width: 1080px) {
+  .hero-about .page-hero-copy { min-height: 231px; }
+  .hero-services .page-hero-copy { min-height: 231px; }
+  .hero-hse .page-hero-copy { min-height: 236px; }
+  .hero-contact .page-hero-copy { min-height: 206px; }
+}
+
+@media (min-width: 1100px) {
+  .hero-about .page-hero-copy { min-height: 233px; }
+  .hero-services .page-hero-copy { min-height: 233px; }
+  .hero-hse .page-hero-copy { min-height: 237px; }
+  .hero-contact .page-hero-copy { min-height: 207px; }
+}
+
+@media (min-width: 1120px) {
+  .hero-about .page-hero-copy { min-height: 235px; }
+  .hero-services .page-hero-copy { min-height: 235px; }
+  .hero-hse .page-hero-copy { min-height: 238px; }
+  .hero-contact .page-hero-copy { min-height: 208px; }
+}
+
+@media (min-width: 1140px) {
+  .hero-about .page-hero-copy { min-height: 288px; }
+  .hero-services .page-hero-copy { min-height: 237px; }
+  .hero-hse .page-hero-copy { min-height: 239px; }
+  .hero-contact .page-hero-copy { min-height: 209px; }
+}
+
+@media (min-width: 1160px) {
+  .hero-about .page-hero-copy { min-height: 291px; }
+  .hero-services .page-hero-copy { min-height: 239px; }
+  .hero-hse .page-hero-copy { min-height: 240px; }
+  .hero-contact .page-hero-copy { min-height: 210px; }
+}
+
+@media (min-width: 1180px) {
+  .hero-about .page-hero-copy { min-height: 294px; }
+  .hero-services .page-hero-copy { min-height: 241px; }
+  .hero-hse .page-hero-copy { min-height: 241px; }
+  .hero-contact .page-hero-copy { min-height: 211px; }
+}
+
+@media (min-width: 1200px) {
+  .hero-about .page-hero-copy { min-height: 296px; }
+  .hero-services .page-hero-copy { min-height: 243px; }
+  .hero-hse .page-hero-copy { min-height: 242px; }
+  .hero-contact .page-hero-copy { min-height: 212px; }
+}
+
+@media (min-width: 1220px) {
+  .hero-about .page-hero-copy { min-height: 299px; }
+  .hero-services .page-hero-copy { min-height: 245px; }
+  .hero-hse .page-hero-copy { min-height: 243px; }
+  .hero-contact .page-hero-copy { min-height: 213px; }
+}
+
+@media (min-width: 1240px) {
+  .hero-about .page-hero-copy { min-height: 302px; }
+  .hero-services .page-hero-copy { min-height: 247px; }
+  .hero-hse .page-hero-copy { min-height: 243px; }
+  .hero-contact .page-hero-copy { min-height: 214px; }
+}
+
+@media (min-width: 1260px) {
+  .hero-about .page-hero-copy { min-height: 305px; }
+  .hero-services .page-hero-copy { min-height: 248px; }
+  .hero-hse .page-hero-copy { min-height: 244px; }
+  .hero-contact .page-hero-copy { min-height: 215px; }
+}
+
+@media (min-width: 1280px) {
+  .hero-about .page-hero-copy { min-height: 308px; }
+  .hero-services .page-hero-copy { min-height: 250px; }
+  .hero-hse .page-hero-copy { min-height: 245px; }
+  .hero-contact .page-hero-copy { min-height: 216px; }
+}
+
+@media (min-width: 1300px) {
+  .hero-about .page-hero-copy { min-height: 311px; }
+  .hero-services .page-hero-copy { min-height: 252px; }
+  .hero-hse .page-hero-copy { min-height: 246px; }
+  .hero-contact .page-hero-copy { min-height: 217px; }
+}
+
+@media (min-width: 1320px) {
+  .hero-about .page-hero-copy { min-height: 314px; }
+  .hero-services .page-hero-copy { min-height: 254px; }
+  .hero-hse .page-hero-copy { min-height: 247px; }
+  .hero-contact .page-hero-copy { min-height: 218px; }
+}
+
+@media (min-width: 1340px) {
+  .hero-about .page-hero-copy { min-height: 316px; }
+  .hero-services .page-hero-copy { min-height: 256px; }
+  .hero-hse .page-hero-copy { min-height: 248px; }
+  .hero-contact .page-hero-copy { min-height: 219px; }
+}
+
+@media (min-width: 1360px) {
+  .hero-about .page-hero-copy { min-height: 322px; }
+  .hero-services .page-hero-copy { min-height: 258px; }
+  .hero-hse .page-hero-copy { min-height: 249px; }
+  .hero-contact .page-hero-copy { min-height: 220px; }
+}
+
+@media (min-width: 1380px) {
+  .hero-about .page-hero-copy { min-height: 325px; }
+  .hero-services .page-hero-copy { min-height: 260px; }
+  .hero-hse .page-hero-copy { min-height: 250px; }
+  .hero-contact .page-hero-copy { min-height: 220px; }
+}
+
+@media (min-width: 1400px) {
+  .hero-about .page-hero-copy { min-height: 328px; }
+  .hero-services .page-hero-copy { min-height: 262px; }
+  .hero-hse .page-hero-copy { min-height: 251px; }
+  .hero-contact .page-hero-copy { min-height: 221px; }
+}
+
+@media (min-width: 1420px) {
+  .hero-about .page-hero-copy { min-height: 331px; }
+  .hero-services .page-hero-copy { min-height: 264px; }
+  .hero-hse .page-hero-copy { min-height: 252px; }
+  .hero-contact .page-hero-copy { min-height: 222px; }
+}

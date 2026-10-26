@@ -3,10 +3,11 @@
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { aboutTeaser } from "@/data/content";
+import { localeHref } from "@/data/lang";
 import Reveal from "./Reveal";
 
 export default function AboutTeaser() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <section className="relative bg-[#f8f6f3] text-[#0e2a47] py-24 lg:py-32">
@@ -25,7 +26,7 @@ export default function AboutTeaser() {
               </p>
             </Reveal>
             <Reveal delay={300}>
-              <Link href="/about" className="btn-ghost mt-10">
+              <Link href={localeHref(lang, "/about")} className="btn-ghost mt-10">
                 {t(aboutTeaser.readMore)} <span aria-hidden className="btn-arrow">→</span>
               </Link>
             </Reveal>

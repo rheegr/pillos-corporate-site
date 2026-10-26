@@ -17,6 +17,7 @@ export default function HsePage() {
       <BreadcrumbJsonLd crumbs={[{ name: "HSE", path: "/hse" }]} />
       <Header />
       <PageHero
+        variant="hse"
         overline={pageHeroes.hse.overline}
         latinOverline
         heading={pageHeroes.hse.heading}

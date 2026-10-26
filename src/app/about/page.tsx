@@ -19,6 +19,7 @@ export default function AboutPage() {
       <BreadcrumbJsonLd crumbs={[{ name: "About", path: "/about" }]} />
       <Header />
       <PageHero
+        variant="about"
         overline={pageHeroes.about.overline}
         heading={pageHeroes.about.heading}
         sub={pageHeroes.about.sub}

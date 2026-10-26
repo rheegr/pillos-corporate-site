@@ -1,5 +1,30 @@
-// Shared between src/proxy.ts (edge), the root layout (server) and the
-// language context (client).
-export const LANG_COOKIE = "pillos-lang";
+// Shared between src/proxy.ts (the request proxy), the root layout (server)
+// and the language context (client).
+//
+// The URL prefix is the language. A `pillos-lang` cookie used to override
+// unprefixed pages; it is intentionally not read anymore, so a saved choice
+// cannot show English HTML at a Korean canonical URL (or the reverse).
+
+export type Lang = "en" | "ko";
+
 export const LANG_HEADER = "x-pillos-lang";
-export const LANG_COOKIE_MAX_AGE = 60 * 60 * 24 * 365; // 1 year
+
+/** Path with any /ko or /en prefix removed. "/" stays "/". */
+export function barePath(pathname: string): string {
+  const stripped = pathname.replace(/^\/(ko|en)(?=\/|$)/, "");
+  return stripped === "" ? "/" : stripped;
+}
+
+/**
+ * Prefix an in-site path with a locale. Hash fragments are kept.
+ * Non-path hrefs (mailto:, https:) pass through unchanged.
+ */
+export function localeHref(lang: Lang, href: string): string {
+  if (!href.startsWith("/")) return href;
+  const hashAt = href.indexOf("#");
+  const hash = hashAt >= 0 ? href.slice(hashAt) : "";
+  let path = hashAt >= 0 ? href.slice(0, hashAt) : href;
+  if (path.length > 1 && path.endsWith("/")) path = path.slice(0, -1);
+  path = barePath(path || "/");
+  return path === "/" ? `/${lang}${hash}` : `/${lang}${path}${hash}`;
+}
