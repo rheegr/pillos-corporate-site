@@ -11,15 +11,15 @@ import { siteUrl } from "@/data/site";
 // search engines that /about, /services etc. were duplicates of the homepage.
 
 type Copy = { title: string; description: string };
-type PageKey = "home" | "about" | "services" | "hse" | "contact" | "faq" | "privacy" | "terms" | "cookies";
+type PageKey = "home" | "about" | "services" | "hse" | "contact" | "privacy" | "terms" | "cookies";
 
 const pages: Record<PageKey, { path: string; en: Copy; ko: Copy }> = {
   home: {
     path: "/",
     en: {
-      title: "Pillos — Korean Ocean Carrier | Bulk, Gas & Chemical Shipping",
+      title: "Pillos (Pillos Shipping) | Korean Ocean Carrier, Bulk, Gas & Chemical",
       description:
-        "Pillos (필로스) is a Korean ocean carrier established in 2009, specializing in dry bulk, gas (LPG), and chemical tanker shipping across global trade routes. A trusted Korea-based ocean shipping company — trusted to deliver.",
+        "Pillos Co., Ltd. (Pillos Shipping, 필로스) is a Korean ocean carrier established in 2009, specializing in dry bulk, gas (LPG), and chemical tanker shipping across global trade routes. A trusted Korea-based ocean shipping company — trusted to deliver.",
     },
     ko: {
       title: "필로스(필로스 해운) | 건화물, 원자재 운송 외항 해운선사",
@@ -77,19 +77,6 @@ const pages: Record<PageKey, { path: string; en: Copy; ko: Copy }> = {
       title: "해상운송, 용선 문의 | 필로스 해운선사 (서울 중구)",
       description:
         "건화물, 원자재, 가스, 케미컬 해상운송과 용선 문의를 받습니다. 이메일 info@pillos.co.kr, 전화 02-318-1703, 주소 서울특별시 중구 충무로 9, 7층.",
-    },
-  },
-  faq: {
-    path: "/faq",
-    en: {
-      title: "Pillos FAQ | CEO, Cargo, Fleet and Routes of a Korean Ocean Carrier",
-      description:
-        "Answers about Pillos: a Korean ocean carrier founded in 2009 and led by CEO In Ewon Rhee, carrying dry bulk, raw materials, LPG and chemicals, and its affiliate Pillos Shipping (필로스해운).",
-    },
-    ko: {
-      title: "필로스 자주 묻는 질문 | 필로스 해운, 이인원 대표, 건화물 운송",
-      description:
-        "필로스는 어떤 회사인지, 대표이사 이인원, 필로스해운과의 관계, 건화물과 원자재 운송 화물, 선형, 항로, 해상운송 문의 방법을 정리했습니다.",
     },
   },
   privacy: {

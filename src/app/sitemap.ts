@@ -10,7 +10,6 @@ const pages: { path: string; freq: "monthly" | "yearly"; priority: number }[] = 
   { path: "/services", freq: "monthly", priority: 0.8 },
   { path: "/hse", freq: "monthly", priority: 0.6 },
   { path: "/contact", freq: "monthly", priority: 0.7 },
-  { path: "/faq", freq: "monthly", priority: 0.7 },
   { path: "/privacy", freq: "yearly", priority: 0.2 },
   { path: "/terms", freq: "yearly", priority: 0.2 },
   { path: "/cookies", freq: "yearly", priority: 0.2 },
@@ -18,7 +17,7 @@ const pages: { path: string; freq: "monthly" | "yearly"; priority: number }[] = 
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Fixed date: an always-"now" lastModified is ignored by crawlers.
-  const lastModified = new Date("2026-10-21");
+  const lastModified = new Date("2026-10-27");
   return pages.flatMap(({ path, freq, priority }) =>
     (["ko", "en"] as const).map((lang) => ({
       url: `${siteUrl}/${lang}${path}`,

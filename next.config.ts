@@ -3,6 +3,11 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async redirects() {
     return [
+      // The FAQ reference page (2026-10-21) surfaced in search results on its
+      // own; its answers now live in llms.txt and every FAQ address goes home.
+      { source: "/faq", destination: "/", permanent: true },
+      { source: "/ko/faq", destination: "/ko", permanent: true },
+      { source: "/en/faq", destination: "/en", permanent: true },
       { source: "/index.html", destination: "/", permanent: true },
       { source: "/about-1.htm", destination: "/about", permanent: true },
       { source: "/about_2.htm", destination: "/about", permanent: true },
