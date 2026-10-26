@@ -35,10 +35,10 @@ export default function Hero() {
       <div className="relative z-10 flex-1 mx-auto w-full max-w-[1280px] px-6 sm:px-10 lg:px-16 flex items-center">
         <div className="w-full max-w-[760px] py-10">
           {/* Hero title stays in English in both languages (KO rendering felt awkward) */}
-          <h1 className="tx-display hero-title balance text-[#f8f6f3]">
+          <h2 className="tx-display hero-title balance text-[#f8f6f3]">
             {hero.titleLine1.en}
             <span className="block text-[#f8f6f3]">{hero.titleLine2.en}</span>
-          </h1>
+          </h2>
 
           <div className="mt-6 h-[2px] w-24 bg-[#f9441d]" aria-hidden />
 
