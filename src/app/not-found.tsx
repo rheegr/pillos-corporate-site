@@ -33,11 +33,11 @@ export default async function NotFound() {
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-6">
                 <Link href={localeHref(lang, "/")} className="btn-primary">
-                  Back to home
+                  {lang === "ko" ? "홈으로" : "Back to home"}
                   <span aria-hidden className="btn-icon">→</span>
                 </Link>
                 <Link href={localeHref(lang, "/contact")} className="btn-ghost">
-                  Get in touch <span aria-hidden className="btn-arrow">→</span>
+                  {lang === "ko" ? "문의하기" : "Get in touch"} <span aria-hidden className="btn-arrow">→</span>
                 </Link>
               </div>
             </div>

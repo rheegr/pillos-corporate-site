@@ -37,7 +37,7 @@ export default function LegalPlaceholder({ overline, heading, body }: Props) {
             </Reveal>
             <Reveal delay={400}>
               <Link href={localeHref(lang, "/")} className="btn-ghost mt-12">
-                <span aria-hidden className="btn-arrow">←</span> Back to home
+                <span aria-hidden className="btn-arrow">←</span> {lang === "ko" ? "홈으로" : "Back to home"}
               </Link>
             </Reveal>
           </div>
