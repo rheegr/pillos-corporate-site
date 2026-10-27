@@ -446,7 +446,7 @@ export const servicesTabs = {
       overline: { en: "02 - GAS SHIPPING", ko: "02 - 가스 운송" },
       heading: {
         en: "Energy Carried with Care",
-        ko: "안전을 최우선으로 하는 가스 운송",
+        ko: "산업의 에너지를 안전하게 실어 나릅니다",
       },
       paragraphs: [
         {
@@ -468,8 +468,8 @@ export const servicesTabs = {
       imagePosition: "center bottom",
       overline: { en: "03 - CHEMICAL SHIPPING", ko: "03 - 케미컬 운송" },
       heading: {
-        en: "Demanding Cargo, Carried with Care",
-        ko: "안전과 정밀함이 요구되는 케미컬 운송",
+        en: "Precise Handling for Every Chemical",
+        ko: "까다로운 케미컬도 정밀하게 운송합니다",
       },
       paragraphs: [
         {
