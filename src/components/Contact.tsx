@@ -60,7 +60,7 @@ export default function Contact() {
               style={{ fontFamily: "var(--font-inter), sans-serif" }}
             >
               <span className="h-px w-6 bg-[#f9441d]/60" aria-hidden />
-              <span style={{ fontFamily: "var(--font-inter), sans-serif" }}>Location</span>
+              <span style={{ fontFamily: "var(--font-inter), sans-serif" }}>{lang === "ko" ? "위치" : "Location"}</span>
             </div>
             <div className="relative w-full aspect-[4/3] border border-[#0e2a47]/15 overflow-hidden shadow-[0_24px_56px_-28px_rgba(14, 42, 71,0.4)]">
               <iframe

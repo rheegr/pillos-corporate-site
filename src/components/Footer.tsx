@@ -18,7 +18,7 @@ export default function Footer() {
             <span className="h-px w-10 bg-[#f8f6f3]/25" />
           </div>
           <div className="flex flex-col items-center text-center text-[10.5px] leading-[1.6] text-[#f8f6f3]/60 tabular">
-            <span>© Pillos CO., LTD. Since 2009. All rights reserved.</span>
+            <span>© Pillos Co., Ltd. Since 2009. All rights reserved.</span>
             <span className="mt-1">{t(footer.addressLine)}</span>
             <span>{t(footer.phoneLine)}</span>
             <span>{t(footer.emailLine)}</span>

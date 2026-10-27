@@ -24,7 +24,7 @@ export const hero = {
   titleLine1: { en: "Trusted to", ko: "확실한 운송," },
   titleLine2: { en: "Deliver", ko: "그 이상의 신뢰" },
   sub: {
-    en: "Trusted partner in global ocean carriage since 2009, specializing in bulk, gas, and chemical sectors",
+    en: "Pillos is a trusted partner in global ocean carriage since 2009, specializing in bulk, gas, and chemical sectors",
     ko: "필로스는 오랜 신뢰와 경험을 바탕으로 고객사와 함께 성장해 온 벌크, 가스, 케미컬 전문 해상운송선사입니다. 2009년부터 산업의 원자재와 에너지, 화학제품을 세계 각지로 운송해왔습니다",
   },
   primaryBtn: { en: "About us", ko: "회사소개" },
@@ -333,7 +333,7 @@ export const pageHeroes = {
       ko: "문의하기",
     },
     sub: {
-      en: "We welcome enquiries from shippers, partners, and industry counterparts. Please send us an email to info@pillos.co.kr or leave a message below",
+      en: "We welcome enquiries from shippers, partners, and industry counterparts. Please email us at info@pillos.co.kr, or leave a message below",
       ko: "문의사항은 이메일(info@pillos.co.kr) 또는 아래 양식으로 편하게 연락 주세요",
     },
   },
@@ -432,7 +432,7 @@ export const servicesTabs = {
           ko: "필로스는 핸디사이즈와 수프라막스부터 파나막스, 캄사르막스에 이르는 다양한 벌크 선형을 운항합니다. 2010년부터 사선과 용선을 효율적으로 운용하며 석탄, 코크스, 철광석, 광물, 석회석, 철강재, 시멘트, 곡물, 보크사이트 등 도시와 산업 기반이 되는 원자재를 안정적으로 수송해 왔습니다.",
         },
         {
-          en: "Our operations span key global routes connecting Korea, China, Japan, Indonesia, Vietnam, Australia, Russia, and the South Americas, as well as vital intra-Asia lanes. Successfully handling substantial cargo volumes year after year, we serve as an integrated part of the value chains for major steelmakers, power utilities, and trading houses.",
+          en: "Our operations span key global routes connecting Korea, China, Japan, Indonesia, Vietnam, Australia, Russia, and South America, as well as vital intra-Asia lanes. Successfully handling substantial cargo volumes year after year, we serve as an integrated part of the value chains for major steelmakers, power utilities, and trading houses.",
           ko: "저희는 한국, 일본, 중국, 인도네시아, 베트남, 호주, 러시아, 남미 등 세계 각지를 연결하는 주요 항로를 폭넓게 누비고 있습니다. 매년 대규모 화물을 안정적으로 처리하며, 이제는 국내외 철강사, 발전사, 종합상사 가치사슬의 핵심 축으로 자리 잡고 있습니다.",
         },
       ],

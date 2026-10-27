@@ -46,7 +46,7 @@ export default function ServicesTeaser() {
                   {t(c.line)}
                 </p>
                 <div className="mt-auto pt-9 inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[var(--tracking-eyebrow-loud)] text-[#f9441d]">
-                  <span>Read</span>
+                  <span>{lang === "ko" ? "보기" : "Read"}</span>
                   <span aria-hidden className="transition-transform duration-[var(--duration-base)] [transition-timing-function:var(--ease-spring)] group-hover:translate-x-1">→</span>
                 </div>
               </Link>
