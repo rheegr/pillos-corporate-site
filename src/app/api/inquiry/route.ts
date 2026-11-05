@@ -1,7 +1,10 @@
 import { NextResponse } from "next/server";
+import { reviewInquiry, type Payload } from "./review";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+// The Claude review can take up to 15 seconds before the email goes out.
+export const maxDuration = 30;
 
 const RESEND_ENDPOINT = "https://api.resend.com/emails";
 
@@ -13,14 +16,6 @@ const MAX_LENGTHS = {
 } as const;
 
 const MAX_PHONE_LENGTH = 40;
-
-type Payload = {
-  company: string;
-  name: string;
-  email: string;
-  message: string;
-  phone: string;
-};
 
 // Per-instance throttle. Serverless instances are short-lived, so this is a
 // speed bump against casual abuse, not a hard quota.
@@ -88,7 +83,14 @@ function parse(body: unknown): { data?: Payload; error?: string } {
   return { data: fields };
 }
 
-function buildMessage(data: Payload, receivedAt: string) {
+function addressList(value: string | undefined) {
+  return (value ?? "")
+    .split(",")
+    .map((entry) => entry.trim())
+    .filter(Boolean);
+}
+
+function buildMessage(data: Payload, receivedAt: string, review: string) {
   const lines = [
     ["Company", data.company],
     ["Name", data.name],
@@ -98,6 +100,10 @@ function buildMessage(data: Payload, receivedAt: string) {
   ];
 
   const html = `<div style="font-family:Arial,'Malgun Gothic',sans-serif;font-size:14px;color:#1a1a1a;line-height:1.7">
+<p style="margin:0 0 16px">[Auto Forwarding]</p>
+<p style="margin:0 0 4px;font-weight:700">주의 / 참고사항</p>
+<div style="margin:0 0 20px;white-space:pre-wrap">${escapeHtml(review)}</div>
+<p style="margin:0 0 16px;font-weight:700;font-size:16px">---- 접수 원문 ----</p>
 <p style="margin:0 0 16px">pillos.co.kr 문의 양식으로 접수된 내용입니다.</p>
 <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-bottom:20px">
 ${lines
@@ -108,10 +114,16 @@ ${lines
   .join("")}
 </table>
 <div style="padding:16px;background:#f5f3ef;border-left:3px solid #f9441d;white-space:pre-wrap">${escapeHtml(data.message)}</div>
-<p style="margin:20px 0 0;color:#888;font-size:12px">이 메일에 그대로 회신하면 문의하신 분(${escapeHtml(data.email)})에게 전달됩니다.</p>
 </div>`;
 
   const text = [
+    "[Auto Forwarding]",
+    "",
+    "주의 / 참고사항",
+    review,
+    "",
+    "---- 접수 원문 ----",
+    "",
     ...lines.map(([label, value]) => `${label}: ${value}`),
     "",
     data.message,
@@ -120,12 +132,10 @@ ${lines
   const subject = `[필로스 웹사이트 문의] ${data.company} / ${data.name}`;
   // No default recipient on purpose: an unset INQUIRY_TO must fail loudly
   // rather than quietly mailing the company address.
-  const to = (process.env.INQUIRY_TO ?? "")
-    .split(",")
-    .map((entry) => entry.trim())
-    .filter(Boolean);
+  const to = addressList(process.env.INQUIRY_TO);
+  const cc = addressList(process.env.INQUIRY_CC);
 
-  return { subject, html, text, to, replyTo: data.email };
+  return { subject, html, text, to, cc };
 }
 
 type Message = ReturnType<typeof buildMessage>;
@@ -143,7 +153,7 @@ async function sendViaResend(msg: Message, from: string) {
     body: JSON.stringify({
       from,
       to: msg.to,
-      reply_to: msg.replyTo,
+      ...(msg.cc.length > 0 ? { cc: msg.cc } : {}),
       subject: msg.subject,
       html: msg.html,
       text: msg.text,
@@ -156,21 +166,23 @@ async function sendViaResend(msg: Message, from: string) {
   return true;
 }
 
-async function sendEmail(data: Payload, receivedAt: string) {
+async function sendEmail(data: Payload, receivedAt: string, review: string) {
   const from = process.env.INQUIRY_FROM;
-  const msg = buildMessage(data, receivedAt);
+  const msg = buildMessage(data, receivedAt, review);
   if (!from || msg.to.length === 0) throw new Error("email_not_configured");
 
   if (await sendViaResend(msg, from)) return;
   throw new Error("email_not_configured");
 }
 
-async function sendTelegram(data: Payload, receivedAt: string) {
+async function sendTelegram(data: Payload, receivedAt: string, review: string) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
   if (!token || !chatId) throw new Error("telegram_not_configured");
 
   const text = [
+    review,
+    "",
     "필로스 웹사이트 문의 접수",
     `회사: ${data.company}`,
     `성함: ${data.name}`,
@@ -217,9 +229,11 @@ export async function POST(req: Request) {
     timeZone: "Asia/Seoul",
   }).format(new Date());
 
+  const review = await reviewInquiry(data, receivedAt);
+
   const results = await Promise.allSettled([
-    sendEmail(data, receivedAt),
-    sendTelegram(data, receivedAt),
+    sendEmail(data, receivedAt, review),
+    sendTelegram(data, receivedAt, review),
   ]);
 
   const channels = ["email", "telegram"] as const;
