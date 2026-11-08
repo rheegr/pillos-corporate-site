@@ -43,19 +43,10 @@ function localized(locale: Lang, bare: string): string {
  */
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const noslash = pathname.replace(/\/+$/, "") || "/";
 
-  // /ko/faq and /en/faq (with or without a trailing slash) stay on that
-  // locale's home. next.config.ts declares the slash-less forms too.
-  if (noslash === "/ko/faq" || noslash === "/en/faq") {
-    return redirectTo(request, noslash === "/en/faq" ? "/en" : "/ko", 308);
-  }
-
-  // Retired /faq address: same destination as the locale FAQ redirects
-  // (the locale home), chosen by country instead of always Korean.
-  if (noslash === "/faq") {
-    return redirectTo(request, `/${localeFromCountry(request)}`, 307);
-  }
+  // /ko/faq and /en/faq are ordinary prefixed pages: the rewrite below serves
+  // them. Unprefixed /faq uses the country 307 at the bottom and lands on
+  // /ko/faq or /en/faq, not on the homepage.
 
   if (pathname.length > 1 && pathname.endsWith("/")) {
     const stripped = pathname.slice(0, -1);

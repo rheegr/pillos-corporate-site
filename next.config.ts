@@ -6,13 +6,11 @@ const nextConfig: NextConfig = {
   skipTrailingSlashRedirect: true,
   async redirects() {
     return [
-      // The FAQ reference page (2026-10-21) surfaced in search results on its
-      // own; its answers now live in llms.txt and every FAQ address goes home.
-      // /ko/faq and /en/faq stay on their own locale home. Unprefixed /faq is
-      // a country 307 in src/proxy.ts (next.config runs first, so it must not
-      // claim /faq here). Old .htm/.html addresses were the Korean site.
-      { source: "/ko/faq", destination: "/ko", permanent: true },
-      { source: "/en/faq", destination: "/en", permanent: true },
+      // /ko/faq and /en/faq are a real page (src/app/faq/page.tsx). They must
+      // not be sent home: a homepage redirect is a different document, and
+      // search engines treat that as a soft 404. Unprefixed /faq is a country
+      // 307 in src/proxy.ts, same as /about. Old .htm/.html addresses were the
+      // Korean site.
       { source: "/index.html", destination: "/ko", permanent: true },
       { source: "/about-1.htm", destination: "/ko/about", permanent: true },
       { source: "/about_2.htm", destination: "/ko/about", permanent: true },

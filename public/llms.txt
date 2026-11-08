@@ -52,13 +52,18 @@
 
 ## Key pages
 
-Korean versions: https://pillos.co.kr/ko, https://pillos.co.kr/ko/about, https://pillos.co.kr/ko/services, https://pillos.co.kr/ko/hse, https://pillos.co.kr/ko/contact
+Canonical URLs only. An unprefixed path such as https://pillos.co.kr/about redirects by country and is not canonical.
 
-- Home: https://pillos.co.kr/
-- About (company overview, vision, memberships): https://pillos.co.kr/about
-- Services (bulk, gas, chemical sector details): https://pillos.co.kr/services
-- HSE (health, safety, environment policy): https://pillos.co.kr/hse
-- Contact (chartering and freight inquiries): https://pillos.co.kr/contact
+Korean: https://pillos.co.kr/ko, https://pillos.co.kr/ko/about, https://pillos.co.kr/ko/services, https://pillos.co.kr/ko/hse, https://pillos.co.kr/ko/contact, https://pillos.co.kr/ko/faq
+
+English: https://pillos.co.kr/en, https://pillos.co.kr/en/about, https://pillos.co.kr/en/services, https://pillos.co.kr/en/hse, https://pillos.co.kr/en/contact, https://pillos.co.kr/en/faq
+
+- Home: https://pillos.co.kr/ko and https://pillos.co.kr/en
+- About (company overview, vision, memberships): https://pillos.co.kr/ko/about and https://pillos.co.kr/en/about
+- Services (bulk, gas, chemical sector details): https://pillos.co.kr/ko/services and https://pillos.co.kr/en/services
+- HSE (health, safety, environment policy): https://pillos.co.kr/ko/hse and https://pillos.co.kr/en/hse
+- Contact (chartering and freight inquiries): https://pillos.co.kr/ko/contact and https://pillos.co.kr/en/contact
+- FAQ (the questions above): https://pillos.co.kr/ko/faq and https://pillos.co.kr/en/faq
 
 ## Sitemap
 
