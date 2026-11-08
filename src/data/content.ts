@@ -585,10 +585,11 @@ export const footer = {
     en: "E-mail : info@pillos.co.kr",
     ko: "E-mail : info@pillos.co.kr",
   },
-  // Visible source for the CEO and affiliate entries in the layout JSON-LD.
+  // CEO only. The affiliate and its 2005 founding year stay on the FAQ
+  // and in the organization structured data, not in this global footer.
   groupLine: {
-    en: "CEO : In Ewon Rhee | Affiliate : Pillos Shipping Co., Ltd. (est. 2005)",
-    ko: "대표이사 : 이인원 | 계열사 : ㈜필로스해운 (2005년 설립)",
+    en: "CEO : In Ewon Rhee",
+    ko: "대표이사 : 이인원",
   },
 };
 
@@ -706,7 +707,7 @@ export const hse = {
 };
 
 // Direct-URL FAQ. Not linked from the header. Answers repeat facts already
-// on the site (services, about, footer, contact) and in public/llms.txt.
+// published on the site and in public/llms.txt.
 // The visible list and the FAQPage JSON-LD are both generated from `items`.
 export const faq = {
   overline: { en: "FAQ", ko: "자주 묻는 질문" },
