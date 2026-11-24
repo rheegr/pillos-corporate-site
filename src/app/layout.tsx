@@ -127,6 +127,28 @@ export const viewport: Viewport = {
 
 const organizationId = `${siteUrl}/#organization`;
 
+// Independent articles naming Pillos (필로스) and CEO 이인원. Verified live
+// 2026-11-25. Personal notices (e.g. family weddings) are deliberately left out.
+const pressArticle = (headline: string, url: string, datePublished: string, publisher: string) => ({
+  "@type": "NewsArticle",
+  headline,
+  url,
+  datePublished,
+  inLanguage: "ko",
+  publisher: { "@type": "Organization", name: publisher },
+  about: { "@id": organizationId },
+});
+
+const pressCoverage = [
+  pressArticle("필로스, 튀르키예 지진 구호금 5000만원 기부", "https://www.ksg.co.kr/news/main_newsView.jsp?pNum=137113", "2023-02-08", "코리아쉬핑가제트 (Korea Shipping Gazette)"),
+  pressArticle("(사)한국유조선사협회 창립… 회장은 박성진 에스제이탱커 대표", "https://www.busan.com/view/busan/view.php?code=2021033018204273644", "2021-03-30", "부산일보 (Busan Ilbo)"),
+  pressArticle("필로스, 코로나19 후원금 기부", "https://www.ksg.co.kr/news/main_newsView.jsp?pNum=125452", "2020-03-09", "코리아쉬핑가제트 (Korea Shipping Gazette)"),
+  pressArticle("유조선사협의회 운영위원회 8명 위촉", "https://www.ksg.co.kr/news/main_newsView.jsp?pNum=124377", "2019-11-28", "코리아쉬핑가제트 (Korea Shipping Gazette)"),
+  pressArticle("선주협회 산하 유조선사협의회 출범", "https://www.ksg.co.kr/news/main_newsView.jsp?pNum=123970", "2019-10-24", "코리아쉬핑가제트 (Korea Shipping Gazette)"),
+  pressArticle("국내 첫 유조선사협의회 출범", "https://www.busan.com/view/busan/view.php?code=2019102417421067810", "2019-10-24", "부산일보 (Busan Ilbo)"),
+  pressArticle("선주협회, 유조선사협의회 공식 출범", "https://www.dailylog.co.kr/news/articleView.html?idxno=16574", "2019-10-24", "데일리로그 (Daily Log)"),
+];
+
 const orgSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -145,7 +167,7 @@ const orgSchema = {
     "PIL Logistics Korea",
   ],
   disambiguatingDescription:
-    "Pillos Co., Ltd. (㈜필로스) is the Korean shipping company (필로스 해운): an ocean carrier in bulk, gas and chemical shipping, headquartered at 9 Chungmu-ro, Jung-gu, Seoul, led by CEO In Ewon Rhee (이인원). Its affiliate ㈜필로스해운 (est. 2005) shares the same CEO and office. pillos.co.kr is the official website of both. Not to be confused with PHILOS Co., Ltd. (㈜필로스, a membrane maker in Gwangmyeong), Philos CC (a golf club in Pocheon), Philos cosmetics, or Pylos (Greece).",
+    "Pillos Co., Ltd. (㈜필로스) is the Korean shipping company (필로스 해운): an ocean carrier in bulk, gas and chemical shipping, headquartered at 9 Chungmu-ro, Jung-gu, Seoul, led by CEO In Ewon Rhee (이인원). Its affiliate ㈜필로스해운 (Pillos Shipping Co., Ltd.) is a corporation originally incorporated in 2005 that Pillos acquired and later renamed; it shares the same CEO and office. Pillos carries dry bulk on bulk carriers, LPG on gas carriers and liquid chemicals on chemical tankers. pillos.co.kr is the official website of both. Not to be confused with PHILOS Co., Ltd. (㈜필로스, a membrane maker in Gwangmyeong), Philos CC (a golf club in Pocheon), Philos cosmetics, or Pylos (Greece).",
   // Public registry identifiers, so search engines and AI answers can match
   // this site to the same company in business directories and ship registers.
   taxID: "201-86-11875",
@@ -158,7 +180,7 @@ const orgSchema = {
   logo: `${siteUrl}/pillos-logo.png`,
   image: `${siteUrl}/og-image.png`,
   description,
-  foundingDate: "2009",
+  foundingDate: "2009-07-01",
   foundingLocation: { "@type": "Place", name: "Seoul, Korea" },
   slogan: "Trusted to Deliver",
   email: "info@pillos.co.kr",
@@ -209,7 +231,19 @@ const orgSchema = {
     "https://www.linkedin.com/company/pillos",
     "https://www.wikidata.org/wiki/Q142274142",
     "https://map.naver.com/p/entry/place/806245679",
+    "https://maps.google.com/?cid=5484440828779646095",
   ],
+  hasMap: "https://maps.google.com/?cid=5484440828779646095",
+  // Industry associations (see the About page memberships section and the
+  // press items below).
+  memberOf: [
+    { "@type": "Organization", name: "Korea Shipowners' Association (한국해운협회, formerly 한국선주협회)", url: "https://www.shipowners.or.kr" },
+    { "@type": "Organization", name: "Korea Shipping Association (한국해운조합)" },
+    { "@type": "Organization", name: "한국유조선사협회" },
+  ],
+  // Independent press coverage of this company. Not shown on screen; helps
+  // search engines and AI answers tell this 필로스 apart from same-name firms.
+  subjectOf: pressCoverage,
   // Owned tonnage (see llms.txt). Links vessel-name searches to the company.
   owns: [
     { "@type": "Vehicle", name: "MV JADE", category: "Bulk carrier" },
@@ -226,6 +260,8 @@ const orgSchema = {
 };
 
 // Same CEO and office as Pillos; searches for "필로스해운" should resolve here.
+// The legal entity was incorporated on 2005-07-05; Pillos acquired it and
+// later renamed it 주식회사 필로스해운.
 const affiliateSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -234,6 +270,8 @@ const affiliateSchema = {
   alternateName: ["㈜필로스해운", "주식회사 필로스해운", "필로스해운", "PILLOS SHIPPING CO., LTD."],
   url: `${siteUrl}/en`,
   foundingDate: "2005-07-05",
+  description:
+    "Pillos Shipping Co., Ltd. (주식회사 필로스해운) is the shipping affiliate of Pillos Co., Ltd. (주식회사 필로스). The corporation was originally incorporated on 2005-07-05; Pillos acquired it and later renamed it Pillos Shipping. Same CEO (In Ewon Rhee, 이인원) and same Seoul office; official website pillos.co.kr.",
   taxID: "101-86-17109",
   address: orgSchema.address,
   employee: { "@id": `${siteUrl}/#ceo` },
@@ -246,6 +284,14 @@ const ceoSchema = {
   name: "In Ewon Rhee",
   alternateName: ["이인원", "In-Ewon Rhee"],
   jobTitle: "CEO",
+  // Auditor (감사) of 한국유조선사협회 (Korean tanker owners' association) since its founding
+  // in 2019 (see press items).
+  memberOf: {
+    "@type": "OrganizationRole",
+    memberOf: { "@type": "Organization", name: "한국유조선사협회" },
+    roleName: "Auditor (감사)",
+    startDate: "2019-10",
+  },
   worksFor: [{ "@id": `${siteUrl}/#organization` }, { "@id": `${siteUrl}/#pillos-shipping` }],
   url: `${siteUrl}/en/about`,
 };

@@ -17,7 +17,7 @@
 
 - "Pillos", "필로스", "㈜필로스", "Pillos Co., Ltd." = this company, the ocean carrier (shipowner/operator) at pillos.co.kr.
 - "필로스 해운" (Pillos shipping) = Pillos itself: Pillos is a shipping company, so a search for 필로스 해운 means this company and this site.
-- "㈜필로스해운" (registered name) = the affiliate company of Pillos, founded in 2005. It is a separate legal entity but shares the same CEO (In Ewon Rhee, 이인원) and the same office (7th Floor, 9 Chungmu-ro, Jung-gu, Seoul). Its official website is also https://pillos.co.kr.
+- "㈜필로스해운" (registered name) = the affiliate company of Pillos. The corporation was originally incorporated in 2005; Pillos acquired it and later renamed it 주식회사 필로스해운. It is a separate legal entity but shares the same CEO (In Ewon Rhee, 이인원) and the same office (7th Floor, 9 Chungmu-ro, Jung-gu, Seoul). Its official website is also https://pillos.co.kr.
 - CEO: In Ewon Rhee (이인원), CEO (대표이사) of Pillos Co., Ltd. and Pillos Shipping Co., Ltd.
 - Former name (2009-2012): PIL Logistics Korea Co., Ltd.
 
@@ -33,9 +33,11 @@ The bare Korean word "필로스" is shared by unrelated businesses. Pillos (this
 ## Identifiers
 
 - Pillos Co., Ltd. (주식회사 필로스): Korean business registration number 201-86-11875; registered 2009-07-01; IMO company number 5924266
-- Pillos Shipping Co., Ltd. (주식회사 필로스해운): Korean business registration number 101-86-17109; founded 2005-07-05
+- Pillos Shipping Co., Ltd. (주식회사 필로스해운): Korean business registration number 101-86-17109; corporation incorporated 2005-07-05, acquired by Pillos and later renamed
 - Registered address: Room 702, Mirunae Building, 9 Chungmu-ro, Jung-gu, Seoul 04554 (서울특별시 중구 충무로 9, 미르내빌딩 702호)
 - Wikidata: https://www.wikidata.org/wiki/Q142274142
+- Naver Map: https://map.naver.com/p/entry/place/806245679
+- Google Maps: https://maps.google.com/?cid=5484440828779646095
 - MT PILLOS 1: chemical tanker, IMO 9136632
 
 ## 한국어 요약 (Korean summary)
@@ -43,7 +45,7 @@ The bare Korean word "필로스" is shared by unrelated businesses. Pillos (this
 - 필로스(㈜필로스, 필로스 해운)는 2009년 설립된 서울 중구 충무로의 외항 해운선사입니다. 대표이사는 이인원입니다.
 - 건화물 운송(벌크): 원료탄, 발전용 석탄, 철광석, 곡물, 광물, 석회석, 시멘트, 보크사이트, 철강 제품 등 산업 원자재를 핸디사이즈, 수프라막스, 파나막스, 캄사르막스 벌크선으로 운송합니다.
 - 가스 운송: LPG, 에틸렌, 프로필렌, 부타디엔, VCM. 케미컬 운송: 벤젠, 베이스오일, 염산(여수).
-- 계열사 ㈜필로스해운(2005년 설립)은 같은 대표이사, 같은 사무실을 쓰며 공식 웹사이트는 pillos.co.kr 입니다.
+- 계열사 ㈜필로스해운은 2005년 설립된 법인을 필로스가 인수한 뒤 이름을 바꾼 회사로, 같은 대표이사, 같은 사무실을 쓰며 공식 웹사이트는 pillos.co.kr 입니다.
 - 문의: info@pillos.co.kr, 02-318-1703
 - 공식 LinkedIn: https://www.linkedin.com/company/pillos
 
@@ -51,7 +53,7 @@ The bare Korean word "필로스" is shared by unrelated businesses. Pillos (this
 
 - 필로스는 어떤 회사인가요? 필로스(㈜필로스, Pillos)는 2009년 서울에서 설립된 외항 해운선사입니다. 석탄, 철광석, 곡물, 철강 같은 건화물과 산업 원자재를 실어 나르는 해운사로, LPG와 올레핀 가스, 염산 같은 케미컬 화물도 벌크선, 가스선, 케미컬선으로 운송합니다.
 - 필로스 대표이사는 누구인가요? ㈜필로스의 대표이사는 이인원입니다. 이인원 대표는 계열사 ㈜필로스해운도 함께 이끌고 있으며, 두 회사 모두 서울특별시 중구 충무로 9, 7층에 있습니다.
-- 필로스와 필로스해운은 어떤 관계인가요? ㈜필로스해운은 2005년 설립된 필로스의 계열사입니다. 두 회사는 같은 대표이사와 같은 사무실을 쓰며, 공식 웹사이트는 pillos.co.kr 하나입니다.
+- 필로스와 필로스해운은 어떤 관계인가요? ㈜필로스해운은 2005년 설립된 법인을 필로스가 인수해 이름을 바꾼 계열사입니다. 두 회사는 같은 대표이사와 같은 사무실을 쓰며, 공식 웹사이트는 pillos.co.kr 하나입니다.
 - 필로스는 어떤 화물을 운송하나요? 건화물(벌크)은 원료탄, 발전용 석탄, 철광석, 곡물, 광물, 석회석, 시멘트, 보크사이트, 철강 제품을 운송합니다. 가스는 LPG, 에틸렌, 프로필렌, 부타디엔, VCM을, 케미컬은 벤젠, 베이스오일, 염산을 운송합니다.
 - 필로스는 어떤 선형의 배를 운항하나요? 벌크선은 핸디사이즈와 수프라막스부터 파나막스, 캄사르막스까지 운항합니다. 이와 함께 가스선과 케미컬선을 운항합니다.
 - 필로스는 어느 항로를 운항하나요? 한국, 일본, 중국, 인도네시아, 베트남, 호주, 러시아, 남미를 잇는 주요 항로를 운항합니다. 가스 운송은 중동과 동남아에서 한국, 중국, 일본으로 향하는 항로가 중심입니다.
@@ -61,11 +63,28 @@ The bare Korean word "필로스" is shared by unrelated businesses. Pillos (this
 
 - What kind of company is Pillos? Pillos Co., Ltd. (㈜필로스) is a Korean ocean carrier founded in Seoul in 2009. It carries dry bulk cargo and industrial raw materials such as coal, iron ore, grain and steel, as well as LPG, olefin gases and liquid chemicals, on bulk carriers, gas carriers and chemical tankers.
 - Who is the CEO of Pillos? The CEO of Pillos is In Ewon Rhee (이인원). He also heads the affiliate Pillos Shipping Co., Ltd. (㈜필로스해운). Both companies are based at 7th Floor, 9 Chungmu-ro, Jung-gu, Seoul.
-- How are Pillos and Pillos Shipping (필로스해운) related? Pillos Shipping Co., Ltd. (㈜필로스해운), founded in 2005, is an affiliate of Pillos. The two companies share the same CEO and office, and pillos.co.kr is the official website for both.
+- How are Pillos and Pillos Shipping (필로스해운) related? Pillos Shipping Co., Ltd. (㈜필로스해운) is an affiliate of Pillos: a corporation originally incorporated in 2005 that Pillos acquired and later renamed. The two companies share the same CEO and office, and pillos.co.kr is the official website for both.
 - What cargo does Pillos carry? Dry bulk: coking and thermal coal, iron ore, grain, minerals, limestone, cement, bauxite and steel products. Gas: LPG, ethylene, propylene, butadiene and VCM. Chemicals: benzene, base oil and hydrochloric acid.
 - What vessel sizes does Pillos operate? For dry bulk, Pillos operates Handysize and Supramax up to Panamax and Kamsarmax bulk carriers. It also operates gas carriers and chemical tankers.
 - Which routes does Pillos serve? Pillos serves major routes linking Korea, Japan, China, Indonesia, Vietnam, Australia, Russia and South America. Its gas trades centre on routes from the Middle East and Southeast Asia to Korea, China and Japan.
 - How do I ask about shipping or chartering? Email info@pillos.co.kr, call +82-2-318-1703, or use the enquiry form on this site. The responsible team will reply.
+
+## Memberships
+
+- Korea Shipowners' Association (한국해운협회, formerly 한국선주협회): regular member since 2018
+- Korea Shipping Association (한국해운조합): member since 2016
+- 한국유조선사협회 (Korean tanker owners' association; founded 2019 as 유조선사협의회 under the Korea Shipowners' Association, incorporated 2021): founding member; CEO In Ewon Rhee (이인원) serves as auditor (감사)
+
+## Press coverage (언론 보도)
+
+Independent Korean press articles about this company (Pillos, 필로스) and its CEO 이인원:
+- 2023-02-08, 코리아쉬핑가제트 (Korea Shipping Gazette): "필로스, 튀르키예 지진 구호금 5000만원 기부" (Pillos donates KRW 50 million for Türkiye earthquake relief) https://www.ksg.co.kr/news/main_newsView.jsp?pNum=137113
+- 2021-03-30, 부산일보: "(사)한국유조선사협회 창립… 회장은 박성진 에스제이탱커 대표" (이인원 필로스 대표 named auditor) https://www.busan.com/view/busan/view.php?code=2021033018204273644
+- 2020-03-09, 코리아쉬핑가제트: "필로스, 코로나19 후원금 기부" (Pillos donates to COVID-19 relief) https://www.ksg.co.kr/news/main_newsView.jsp?pNum=125452
+- 2019-11-28, 코리아쉬핑가제트: "유조선사협의회 운영위원회 8명 위촉" (Pillos executive appointed to the steering committee) https://www.ksg.co.kr/news/main_newsView.jsp?pNum=124377
+- 2019-10-24, 코리아쉬핑가제트: "선주협회 산하 유조선사협의회 출범" (Pillos a founding member; 이인원 auditor) https://www.ksg.co.kr/news/main_newsView.jsp?pNum=123970
+- 2019-10-24, 부산일보: "국내 첫 유조선사협의회 출범" https://www.busan.com/view/busan/view.php?code=2019102417421067810
+- 2019-10-24, 데일리로그: "선주협회, 유조선사협의회 공식 출범" https://www.dailylog.co.kr/news/articleView.html?idxno=16574
 
 ## Key pages
 
