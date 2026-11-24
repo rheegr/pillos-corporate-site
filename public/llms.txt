@@ -21,6 +21,23 @@
 - CEO: In Ewon Rhee (이인원), CEO (대표이사) of Pillos Co., Ltd. and Pillos Shipping Co., Ltd.
 - Former name (2009-2012): PIL Logistics Korea Co., Ltd.
 
+## Not the same company (other "필로스" / "Philos" names)
+
+The bare Korean word "필로스" is shared by unrelated businesses. Pillos (this site) is only the shipping company above. It is NOT:
+- ㈜필로스 / PHILOS Co., Ltd. in Gwangmyeong, Gyeonggi-do (membrane and filter maker, pmbr.co.kr, different CEO)
+- 필로스CC / Philos CC (golf club in Pocheon, philosgc.com)
+- 필로스 화장품 / Philos cosmetics (philosplaza.co.kr)
+- 필로스(PHILOS) interior and engineering brands, or 필로스 cafes and restaurants
+- Pylos (필로스), the town and bay in Greece, or the Greek word "philos"
+
+## Identifiers
+
+- Pillos Co., Ltd. (주식회사 필로스): Korean business registration number 201-86-11875; registered 2009-07-01; IMO company number 5924266
+- Pillos Shipping Co., Ltd. (주식회사 필로스해운): Korean business registration number 101-86-17109; founded 2005-07-05
+- Registered address: Room 702, Mirunae Building, 9 Chungmu-ro, Jung-gu, Seoul 04554 (서울특별시 중구 충무로 9, 미르내빌딩 702호)
+- Wikidata: https://www.wikidata.org/wiki/Q142274142
+- MT PILLOS 1: chemical tanker, IMO 9136632
+
 ## 한국어 요약 (Korean summary)
 
 - 필로스(㈜필로스, 필로스 해운)는 2009년 설립된 서울 중구 충무로의 외항 해운선사입니다. 대표이사는 이인원입니다.
@@ -52,13 +69,12 @@
 
 ## Key pages
 
-Korean versions: https://pillos.co.kr/ko, https://pillos.co.kr/ko/about, https://pillos.co.kr/ko/services, https://pillos.co.kr/ko/hse, https://pillos.co.kr/ko/contact
-
-- Home: https://pillos.co.kr/
-- About (company overview, vision, memberships): https://pillos.co.kr/about
-- Services (bulk, gas, chemical sector details): https://pillos.co.kr/services
-- HSE (health, safety, environment policy): https://pillos.co.kr/hse
-- Contact (chartering and freight inquiries): https://pillos.co.kr/contact
+- Home (Korean): https://pillos.co.kr/ko
+- Home (English): https://pillos.co.kr/en
+- About / 회사소개 (company overview, CEO, memberships): https://pillos.co.kr/ko/about , https://pillos.co.kr/en/about
+- Services / 사업영역 (bulk, gas, chemical sector details): https://pillos.co.kr/ko/services , https://pillos.co.kr/en/services
+- HSE (health, safety, environment policy): https://pillos.co.kr/ko/hse , https://pillos.co.kr/en/hse
+- Contact / 문의하기 (chartering and freight inquiries): https://pillos.co.kr/ko/contact , https://pillos.co.kr/en/contact
 
 ## Sitemap
 

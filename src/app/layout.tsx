@@ -133,9 +133,27 @@ const orgSchema = {
   "@id": organizationId,
   name: "Pillos",
   legalName: "Pillos Co., Ltd.",
-  alternateName: ["㈜필로스", "주식회사 필로스", "필로스", "필로스 해운", "Pillos", "Pillos Shipping"],
+  alternateName: [
+    "㈜필로스",
+    "주식회사 필로스",
+    "필로스",
+    "필로스 해운",
+    "필로스 선사",
+    "Pillos",
+    "Pillos Shipping",
+    "PILLOS CO., LTD.",
+    "PIL Logistics Korea",
+  ],
   disambiguatingDescription:
-    "Pillos Co., Ltd. (㈜필로스) is the Korean shipping company (필로스 해운): an ocean carrier in bulk, gas and chemical shipping, headquartered at 9 Chungmu-ro, Jung-gu, Seoul, led by CEO In Ewon Rhee (이인원). Its affiliate ㈜필로스해운 (est. 2005) shares the same CEO and office. pillos.co.kr is the official website of both.",
+    "Pillos Co., Ltd. (㈜필로스) is the Korean shipping company (필로스 해운): an ocean carrier in bulk, gas and chemical shipping, headquartered at 9 Chungmu-ro, Jung-gu, Seoul, led by CEO In Ewon Rhee (이인원). Its affiliate ㈜필로스해운 (est. 2005) shares the same CEO and office. pillos.co.kr is the official website of both. Not to be confused with PHILOS Co., Ltd. (㈜필로스, a membrane maker in Gwangmyeong), Philos CC (a golf club in Pocheon), Philos cosmetics, or Pylos (Greece).",
+  // Public registry identifiers, so search engines and AI answers can match
+  // this site to the same company in business directories and ship registers.
+  taxID: "201-86-11875",
+  identifier: [
+    { "@type": "PropertyValue", propertyID: "KR business registration number (사업자등록번호)", value: "201-86-11875" },
+    { "@type": "PropertyValue", propertyID: "IMO company number", value: "5924266" },
+    { "@type": "PropertyValue", propertyID: "Wikidata", value: "Q142274142" },
+  ],
   url: `${siteUrl}/en`,
   logo: `${siteUrl}/pillos-logo.png`,
   image: `${siteUrl}/og-image.png`,
@@ -148,10 +166,25 @@ const orgSchema = {
   faxNumber: "+82-2-318-1706",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "7th Floor, 9 Chungmu-ro, Jung-gu",
+    streetAddress: "Room 702, Mirunae Bldg., 9 Chungmu-ro, Jung-gu",
     addressLocality: "Seoul",
+    addressRegion: "Seoul",
     postalCode: "04554",
     addressCountry: "KR",
+  },
+  // Same office in Korean, as written on Naver Map and in business registries.
+  location: {
+    "@type": "Place",
+    name: "필로스 본사 (Pillos head office)",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "충무로 9, 미르내빌딩 702호",
+      addressLocality: "중구",
+      addressRegion: "서울특별시",
+      postalCode: "04554",
+      addressCountry: "KR",
+    },
+    geo: { "@type": "GeoCoordinates", latitude: 37.562065, longitude: 126.992897 },
   },
   contactPoint: {
     "@type": "ContactPoint",
@@ -172,7 +205,21 @@ const orgSchema = {
     "Hydrochloric acid transport",
     "Coal, iron ore and grain transport",
   ],
-  sameAs: ["https://www.linkedin.com/company/pillos"],
+  sameAs: [
+    "https://www.linkedin.com/company/pillos",
+    "https://www.wikidata.org/wiki/Q142274142",
+    "https://map.naver.com/p/entry/place/806245679",
+  ],
+  // Owned tonnage (see llms.txt). Links vessel-name searches to the company.
+  owns: [
+    { "@type": "Vehicle", name: "MV JADE", category: "Bulk carrier" },
+    {
+      "@type": "Vehicle",
+      name: "MT PILLOS 1",
+      category: "Chemical tanker",
+      identifier: { "@type": "PropertyValue", propertyID: "IMO", value: "9136632" },
+    },
+  ],
   employee: { "@id": `${siteUrl}/#ceo` },
   naics: "483111",
   areaServed: ["KR", "JP", "CN", "AU", "Southeast Asia", "Global"],
@@ -184,9 +231,10 @@ const affiliateSchema = {
   "@type": "Organization",
   "@id": `${siteUrl}/#pillos-shipping`,
   name: "Pillos Shipping Co., Ltd.",
-  alternateName: ["㈜필로스해운", "주식회사 필로스해운", "필로스해운"],
+  alternateName: ["㈜필로스해운", "주식회사 필로스해운", "필로스해운", "PILLOS SHIPPING CO., LTD."],
   url: `${siteUrl}/en`,
-  foundingDate: "2005",
+  foundingDate: "2005-07-05",
+  taxID: "101-86-17109",
   address: orgSchema.address,
   employee: { "@id": `${siteUrl}/#ceo` },
 };
@@ -196,7 +244,7 @@ const ceoSchema = {
   "@type": "Person",
   "@id": `${siteUrl}/#ceo`,
   name: "In Ewon Rhee",
-  alternateName: "이인원",
+  alternateName: ["이인원", "In-Ewon Rhee"],
   jobTitle: "CEO",
   worksFor: [{ "@id": `${siteUrl}/#organization` }, { "@id": `${siteUrl}/#pillos-shipping` }],
   url: `${siteUrl}/en/about`,
@@ -207,7 +255,8 @@ const websiteSchema = {
   "@type": "WebSite",
   "@id": `${siteUrl}/#website`,
   name: "Pillos",
-  alternateName: "필로스",
+  // Site-name candidates for search results: Korean brand first.
+  alternateName: ["필로스", "필로스 해운", "Pillos Shipping", "pillos.co.kr"],
   url: `${siteUrl}/en`,
   inLanguage: ["en", "ko"],
   publisher: { "@id": organizationId },

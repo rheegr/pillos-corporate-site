@@ -17,7 +17,7 @@ const pages: { path: string; freq: "monthly" | "yearly"; priority: number }[] = 
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Fixed date: an always-"now" lastModified is ignored by crawlers.
-  const lastModified = new Date("2026-10-27");
+  const lastModified = new Date("2026-11-24");
   return pages.flatMap(({ path, freq, priority }) =>
     (["ko", "en"] as const).map((lang) => ({
       url: `${siteUrl}/${lang}${path}`,

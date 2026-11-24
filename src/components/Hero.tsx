@@ -20,8 +20,7 @@ export default function Hero() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/hero-jade.jpg"
-          alt=""
-          aria-hidden
+          alt={t(hero.imageAlt)}
           fetchPriority="high"
           decoding="async"
           className="absolute inset-0 h-full w-full object-cover z-0 hero-photo-img"
