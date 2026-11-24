@@ -147,6 +147,7 @@ const pressCoverage = [
   pressArticle("선주협회 산하 유조선사협의회 출범", "https://www.ksg.co.kr/news/main_newsView.jsp?pNum=123970", "2019-10-24", "코리아쉬핑가제트 (Korea Shipping Gazette)"),
   pressArticle("국내 첫 유조선사협의회 출범", "https://www.busan.com/view/busan/view.php?code=2019102417421067810", "2019-10-24", "부산일보 (Busan Ilbo)"),
   pressArticle("선주협회, 유조선사협의회 공식 출범", "https://www.dailylog.co.kr/news/articleView.html?idxno=16574", "2019-10-24", "데일리로그 (Daily Log)"),
+  pressArticle("인천-제주항로 여객선사업자 대저건설 선정", "https://www.ksg.co.kr/news/main_newsView.jsp?pNum=117530", "2018-04-30", "코리아쉬핑가제트 (Korea Shipping Gazette)"),
 ];
 
 const orgSchema = {
