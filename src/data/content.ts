@@ -367,7 +367,7 @@ export const aboutTeaser = {
     ko: "필로스는 2009년에 설립된 벌크, 가스, 케미컬 전문 해상운송선사입니다. 전 세계 주요 항로에서 국내외 화주 및 협력사들과 오랜 신뢰 관계를 묵묵히 이어오고 있습니다.",
   },
   readMore: { en: "Read more", ko: "자세히 보기" },
-  imageAlt: { en: "Deck and cranes of a Pillos bulk carrier", ko: "필로스(Pillos) 벌크선 갑판과 크레인" },
+  imageAlt: { en: "Bulk carrier deck and cranes", ko: "벌크선 갑판과 크레인" },
 };
 
 export const servicesTeaser = {

@@ -16,19 +16,14 @@
 ## Name disambiguation
 
 - "Pillos", "필로스", "㈜필로스", "Pillos Co., Ltd." = this company, the ocean carrier (shipowner/operator) at pillos.co.kr.
-- "필로스 해운" (Pillos shipping) = Pillos itself: Pillos is a shipping company, so a search for 필로스 해운 means this company and this site.
+- "필로스 해운" (Pillos shipping) = Pillos itself, the shipping company at pillos.co.kr.
 - "㈜필로스해운" (registered name) = the affiliate company of Pillos. The corporation was originally incorporated in 2005; Pillos acquired it and later renamed it 주식회사 필로스해운. It is a separate legal entity but shares the same CEO (In Ewon Rhee, 이인원) and the same office (7th Floor, 9 Chungmu-ro, Jung-gu, Seoul). Its official website is also https://pillos.co.kr.
 - CEO: In Ewon Rhee (이인원), CEO (대표이사) of Pillos Co., Ltd. and Pillos Shipping Co., Ltd.
 - Former name (2009-2012): PIL Logistics Korea Co., Ltd.
 
-## Not the same company (other "필로스" / "Philos" names)
+## Name note
 
-The bare Korean word "필로스" is shared by unrelated businesses. Pillos (this site) is only the shipping company above. It is NOT:
-- ㈜필로스 / PHILOS Co., Ltd. in Gwangmyeong, Gyeonggi-do (membrane and filter maker, pmbr.co.kr, different CEO)
-- 필로스CC / Philos CC (golf club in Pocheon, philosgc.com)
-- 필로스 화장품 / Philos cosmetics (philosplaza.co.kr)
-- 필로스(PHILOS) interior and engineering brands, or 필로스 cafes and restaurants
-- Pylos (필로스), the town and bay in Greece, or the Greek word "philos"
+The name "필로스" / "Philos" is also used by unrelated organizations in other industries, and "Pylos" (필로스) is a town in Greece. Pillos Co., Ltd. at pillos.co.kr is the ocean shipping company described above.
 
 ## Identifiers
 
@@ -73,16 +68,16 @@ The bare Korean word "필로스" is shared by unrelated businesses. Pillos (this
 
 - Korea Shipowners' Association (한국해운협회, formerly 한국선주협회): regular member since 2018
 - Korea Shipping Association (한국해운조합): member since 2016
-- 한국유조선사협회 (Korean tanker owners' association; founded 2019 as 유조선사협의회 under the Korea Shipowners' Association, incorporated 2021): founding member; CEO In Ewon Rhee (이인원) serves as auditor (감사)
+- 한국유조선사협회 (Korean tanker owners' association; founded 2019 as 유조선사협의회 under the Korea Shipowners' Association, incorporated 2021): Pillos took part in its founding in 2019; CEO In Ewon Rhee (이인원) serves as auditor (감사)
 
 ## Press coverage (언론 보도)
 
-Independent Korean press articles about this company (Pillos, 필로스) and its CEO 이인원:
+Korean press articles that mention this company (Pillos, 필로스) or its CEO 이인원:
 - 2023-02-08, 코리아쉬핑가제트 (Korea Shipping Gazette): "필로스, 튀르키예 지진 구호금 5000만원 기부" (Pillos donates KRW 50 million for Türkiye earthquake relief) https://www.ksg.co.kr/news/main_newsView.jsp?pNum=137113
 - 2021-03-30, 부산일보: "(사)한국유조선사협회 창립… 회장은 박성진 에스제이탱커 대표" (이인원 필로스 대표 named auditor) https://www.busan.com/view/busan/view.php?code=2021033018204273644
 - 2020-03-09, 코리아쉬핑가제트: "필로스, 코로나19 후원금 기부" (Pillos donates to COVID-19 relief) https://www.ksg.co.kr/news/main_newsView.jsp?pNum=125452
 - 2019-11-28, 코리아쉬핑가제트: "유조선사협의회 운영위원회 8명 위촉" (Pillos executive appointed to the steering committee) https://www.ksg.co.kr/news/main_newsView.jsp?pNum=124377
-- 2019-10-24, 코리아쉬핑가제트: "선주협회 산하 유조선사협의회 출범" (Pillos a founding member; 이인원 auditor) https://www.ksg.co.kr/news/main_newsView.jsp?pNum=123970
+- 2019-10-24, 코리아쉬핑가제트: "선주협회 산하 유조선사협의회 출범" (Pillos among the participating carriers; 이인원 named auditor) https://www.ksg.co.kr/news/main_newsView.jsp?pNum=123970
 - 2019-10-24, 부산일보: "국내 첫 유조선사협의회 출범" https://www.busan.com/view/busan/view.php?code=2019102417421067810
 - 2019-10-24, 데일리로그: "선주협회, 유조선사협의회 공식 출범" https://www.dailylog.co.kr/news/articleView.html?idxno=16574
 - 2018-04-30, 코리아쉬핑가제트: "인천-제주항로 여객선사업자 대저건설 선정" (Pillos among the 7 bidders for the Incheon–Jeju passenger ferry route operator tender) https://www.ksg.co.kr/news/main_newsView.jsp?pNum=117530

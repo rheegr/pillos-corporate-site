@@ -38,7 +38,7 @@ const title = "Pillos — Korean Ocean Carrier | Bulk, Gas & Chemical Shipping";
 // Link-share preview card title (kept clean/branded; the SEO <title> above stays keyword-rich)
 const ogTitle = "Pillos - Trusted to Deliver";
 const description =
-  "Pillos (필로스) is a Korean ocean carrier established in 2009, specializing in dry bulk, gas (LPG), and chemical tanker shipping across global trade routes. A trusted Korea-based ocean shipping company — trusted to deliver.";
+  "Pillos (필로스) is a Korean ocean carrier established in 2009 in Seoul, specializing in dry bulk, gas (LPG), and chemical tanker shipping across global trade routes.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -168,7 +168,7 @@ const orgSchema = {
     "PIL Logistics Korea",
   ],
   disambiguatingDescription:
-    "Pillos Co., Ltd. (㈜필로스) is the Korean shipping company (필로스 해운): an ocean carrier in bulk, gas and chemical shipping, headquartered at 9 Chungmu-ro, Jung-gu, Seoul, led by CEO In Ewon Rhee (이인원). Its affiliate ㈜필로스해운 (Pillos Shipping Co., Ltd.) is a corporation originally incorporated in 2005 that Pillos acquired and later renamed; it shares the same CEO and office. Pillos carries dry bulk on bulk carriers, LPG on gas carriers and liquid chemicals on chemical tankers. pillos.co.kr is the official website of both. Not to be confused with PHILOS Co., Ltd. (㈜필로스, a membrane maker in Gwangmyeong), Philos CC (a golf club in Pocheon), Philos cosmetics, or Pylos (Greece).",
+    "Pillos Co., Ltd. (㈜필로스) is the Korean shipping company (필로스 해운): an ocean carrier in bulk, gas and chemical shipping, headquartered at 9 Chungmu-ro, Jung-gu, Seoul, led by CEO In Ewon Rhee (이인원). Its affiliate ㈜필로스해운 (Pillos Shipping Co., Ltd.) is a corporation originally incorporated in 2005 that Pillos acquired and later renamed; it shares the same CEO and office. Pillos carries dry bulk on bulk carriers, LPG on gas carriers and liquid chemicals on chemical tankers. pillos.co.kr is the official website of both.",
   // Public registry identifiers, so search engines and AI answers can match
   // this site to the same company in business directories and ship registers.
   taxID: "201-86-11875",
