@@ -172,7 +172,11 @@ const orgSchema = {
     "Hydrochloric acid transport",
     "Coal, iron ore and grain transport",
   ],
-  sameAs: ["https://www.linkedin.com/company/pillos"],
+  sameAs: [
+    "https://www.linkedin.com/company/pillos",
+    "https://maps.google.com/?cid=5484440828779646095",
+  ],
+  hasMap: "https://maps.google.com/?cid=5484440828779646095",
   employee: { "@id": `${siteUrl}/#ceo` },
   naics: "483111",
   areaServed: ["KR", "JP", "CN", "AU", "Southeast Asia", "Global"],
