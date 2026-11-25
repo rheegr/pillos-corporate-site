@@ -28,6 +28,9 @@ export const hero = {
     ko: "필로스는 오랜 신뢰와 경험을 바탕으로 고객사와 함께 성장해 온 벌크, 가스, 케미컬 전문 해상운송선사입니다. 2009년부터 산업의 원자재와 에너지, 화학제품을 세계 각지로 운송해왔습니다",
   },
   primaryBtn: { en: "About us", ko: "회사소개" },
+  // Background photo alt. Brand + vessel type so image search ("필로스",
+  // "Pillos bulk carrier") can attribute the photo to the company.
+  imageAlt: { en: "Pillos bulk carrier at sea", ko: "필로스(Pillos) 벌크선 운항 모습" },
   metrics: [
     {
       value: "Since 2009",
@@ -364,6 +367,7 @@ export const aboutTeaser = {
     ko: "필로스는 2009년에 설립된 벌크, 가스, 케미컬 전문 해상운송선사입니다. 전 세계 주요 항로에서 국내외 화주 및 협력사들과 오랜 신뢰 관계를 묵묵히 이어오고 있습니다.",
   },
   readMore: { en: "Read more", ko: "자세히 보기" },
+  imageAlt: { en: "Bulk carrier deck and cranes", ko: "벌크선 갑판과 크레인" },
 };
 
 export const servicesTeaser = {
@@ -573,6 +577,12 @@ export const inquiryForm = {
 };
 
 export const footer = {
+  // Registered names in each language: "주식회사 필로스" is the exact Korean
+  // name searched on Naver and Google, next to the English legal name.
+  copyrightLine: {
+    en: "© Pillos Co., Ltd. Since 2009. All rights reserved.",
+    ko: "© 주식회사 필로스 (Pillos Co., Ltd.) Since 2009. All rights reserved.",
+  },
   addressLine: {
     en: "7th Floor, 9 Chungmu-ro, Jung-gu, Seoul, Korea, 04554",
     ko: "서울특별시 중구 충무로 9, 7층 (우편번호 04554)",

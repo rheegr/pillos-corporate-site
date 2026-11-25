@@ -19,12 +19,12 @@ const pages: Record<PageKey, { path: string; en: Copy; ko: Copy }> = {
     en: {
       title: "Pillos | Bulk, Gas & Chemical - Trusted to Deliver",
       description:
-        "Pillos Co., Ltd. (Pillos Shipping, 필로스) is a Korean ocean carrier established in 2009, specializing in dry bulk, gas (LPG), and chemical tanker shipping across global trade routes. A trusted Korea-based ocean shipping company — trusted to deliver.",
+        "Pillos Co., Ltd. (Pillos Shipping, 필로스) is a Korean ocean carrier established in 2009 in Seoul. It carries coal, iron ore, grain and steel on bulk carriers, LPG on gas carriers, and liquid chemicals on chemical tankers. CEO In Ewon Rhee.",
     },
     ko: {
       title: "필로스(Pillos) | 벌크, 가스, 케미컬 해운 - Trusted to Deliver",
       description:
-        "필로스(㈜필로스, Pillos)는 2009년 설립된 외항 해운선사입니다. 석탄, 철광석, 곡물, 철강 같은 건화물과 원자재, LPG, 케미컬을 벌크선, 가스선, 케미컬선으로 운송합니다. 대표이사 이인원.",
+        "필로스(주식회사 필로스, Pillos)는 2009년 설립된 서울의 외항 해운선사입니다. 석탄, 철광석, 곡물, 철강 같은 건화물과 원자재, LPG, 케미컬을 벌크선, 가스선, 케미컬선으로 운송합니다. 대표이사 이인원, 계열사 ㈜필로스해운.",
     },
   },
   about: {

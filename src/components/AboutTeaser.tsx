@@ -38,8 +38,7 @@ export default function AboutTeaser() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/ship-bulk-deck.jpg"
-                alt=""
-                aria-hidden
+                alt={t(aboutTeaser.imageAlt)}
                 loading="lazy"
                 decoding="async"
                 className="block w-full aspect-[4/5] object-cover grayscale-[15%] contrast-[1.05] shadow-[0_24px_56px_-28px_rgba(14, 42, 71,0.4)]"
